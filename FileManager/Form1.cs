@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.IO;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.Devices;
 
 namespace FileManager
 {
@@ -105,11 +107,16 @@ namespace FileManager
                         SHGetFileInfo(files[i], (uint)0x80, ref shfi, (uint)Marshal.SizeOf(shfi), (uint)(0x100 | 0x400));
                         imglist.Images.Add(fi.Name, (Icon)Icon.FromHandle(shfi.hIcon).Clone());
                         info[0] = fi.Name;
-                        double dbLength = fi.Length / 1024;
-                        if (dbLength < 1024)
-                            info[1] = dbLength.ToString("0.00") + "KB";
+                        double kbLength = fi.Length / 1024;
+                        double mbLength;
+                        if (fi.Length < 1024)
+                            info[1] = fi.Length.ToString("0.00") + "B";
+                        else if (kbLength < 1024)
+                            info[1] = kbLength.ToString("0.00") + "KB";
+                        else if ((mbLength = kbLength / 1024) < 1024)
+                            info[1] = Convert.ToDouble(mbLength).ToString("0.00") + "MB";
                         else
-                            info[1] = Convert.ToDouble(dbLength / 1024).ToString("0.00") + "MB";
+                            info[1] = Convert.ToDouble(mbLength / 1024).ToString("0.00") + "GB";
                         info[2] = fi.Extension.ToString();
                         info[3] = fi.LastWriteTime.ToString();
                         ListViewItem item = new ListViewItem(info, fi.Name);
@@ -186,15 +193,7 @@ namespace FileManager
             toolStripTextBox2.Text = AllPath;
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         //树状视图控件中选择一项后的事件，选择不同磁盘，在列表中显示该磁盘文件及文件夹信息
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -240,6 +239,19 @@ namespace FileManager
                 toolStripButton3_Click(sender, e);               
         }
 
+        public void NewFile(ListView lv, ImageList imagelist, string strName, int intflag)
+        {
+            string strPath = AllPath + strName;
+            if (intflag == 0)
+            {
+                File.Create(strPath).Close();
+            }
+            else if(intflag == 1)
+            {
+                Directory.CreateDirectory(strPath);
+            }
+            GetListViewItem(AllPath, imagelist, listView1);
+        }
 
         //设定文件和文件夹的显示效果，分别为平铺、图标、列表和详细信息。
         private void 平铺ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -261,5 +273,60 @@ namespace FileManager
         {
             listView1.View = View.Details;
         }
+
+        private void 新建文件ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string filename = Interaction.InputBox("请输入新建文件名", "新建文件", DateTime.Now.ToString("yyyyMMddhhmmss") + ".txt", -1, -1);
+            NewFile(listView1, imageList1, filename, 0);
+        }
+
+        private void 新建文件夹ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string dirname = Interaction.InputBox("请输入新建文件夹名", "新建文件夹", DateTime.Now.ToString("yyyyMMddhhmmss"), -1, -1);
+            NewFile(listView1, imageList1, dirname, 1);
+        }
+
+        private void toolStripMenuItem2_Click_1(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 1)
+            {
+                try
+                {
+                    string FileName = AllPath + listView1.SelectedItems[0].Text;
+                    string newFileName = Interaction.InputBox("请输入新文件(夹)名", "重命名", listView1.SelectedItems[0].Text, -1, -1);
+                    FileSystem.Rename(FileName, AllPath + newFileName);
+                    GetListViewItem(AllPath, imageList1, listView1);
+                }
+                catch { }
+                
+            }
+            else
+            {
+                MessageBox.Show("请先选择一个文件或文件夹");
+            }
+        }
+
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        {
+             
+            listView1.MultiSelect = false;
+            //鼠标右键
+            
+            if (e.Button == MouseButtons.Right && listView1.SelectedItems.Count == 1)
+            {
+                string fileName = listView1.SelectedItems[0].Text; //获取选中文件名  
+                Point p = new Point(e.X, e.Y);
+                contextMenuStrip1.Show(listView1, p);
+            }
+            else if(e.Button == MouseButtons.Right && listView1.SelectedItems.Count <= 0)
+            {
+                Point p = new Point(e.X, e.Y);
+                contextMenuStrip1 = contextMenuStrip2;
+                contextMenuStrip1.Show(listView1, p);
+            }
+
+        }
+
+
     }
 }
