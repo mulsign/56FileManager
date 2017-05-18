@@ -1,0 +1,762 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="文件ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
+  </data>
+  <data name="文件ToolStripMenuItem.Text" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="平铺ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="平铺ToolStripMenuItem.Text" xml:space="preserve">
+    <value>平铺</value>
+  </data>
+  <data name="图标ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="图标ToolStripMenuItem.Text" xml:space="preserve">
+    <value>图标</value>
+  </data>
+  <data name="列表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="列表ToolStripMenuItem.Text" xml:space="preserve">
+    <value>列表</value>
+  </data>
+  <data name="详细信息ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="详细信息ToolStripMenuItem.Text" xml:space="preserve">
+    <value>详细信息</value>
+  </data>
+  <data name="查看ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
+  </data>
+  <data name="查看ToolStripMenuItem.Text" xml:space="preserve">
+    <value>查看</value>
+  </data>
+  <data name="备份ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
+  </data>
+  <data name="备份ToolStripMenuItem.Text" xml:space="preserve">
+    <value>备份</value>
+  </data>
+  <data name="加密ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
+  </data>
+  <data name="加密ToolStripMenuItem.Text" xml:space="preserve">
+    <value>加密</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>493, 25</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="新建文件ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="新建文件ToolStripMenuItem.Text" xml:space="preserve">
+    <value>新建文件</value>
+  </data>
+  <data name="新建文件夹ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 22</value>
+  </data>
+  <data name="新建文件夹ToolStripMenuItem.Text" xml:space="preserve">
+    <value>新建文件夹</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 22</value>
+  </data>
+  <data name="toolStripMenuItem2.Text" xml:space="preserve">
+    <value>重命名</value>
+  </data>
+  <data name="剪切ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 22</value>
+  </data>
+  <data name="剪切ToolStripMenuItem.Text" xml:space="preserve">
+    <value>剪切</value>
+  </data>
+  <data name="复制ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 22</value>
+  </data>
+  <data name="复制ToolStripMenuItem.Text" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="粘贴ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 22</value>
+  </data>
+  <data name="粘贴ToolStripMenuItem.Text" xml:space="preserve">
+    <value>粘贴</value>
+  </data>
+  <data name="退出ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 22</value>
+  </data>
+  <data name="退出ToolStripMenuItem.Text" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>137, 17</value>
+  </metadata>
+  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 25</value>
+  </data>
+  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>493, 25</value>
+  </data>
+  <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="toolStrip1.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="toolStripLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 22</value>
+  </data>
+  <data name="toolStripLabel2.Text" xml:space="preserve">
+    <value>地址：</value>
+  </data>
+  <data name="toolStripTextBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 25</value>
+  </data>
+  <data name="toolStripButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAIIAAACoCAYAAAAsNDatAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPVSURBVHhe7daxjdRQFIXhQSuEtIgSiIlIaIAKEH2Qk5NT
+        AOQ0AAVQAR0geoF3DnvRsvLszoyf7Xuf/086etaLLPkPfMDhbdujv4/Yq3dtv9u+tF3pAvvzvk0RxL62
+        PW7Djnxoux1B7HvbkzYMTv8CH9umIoj9aLtuw6AUwae2qY9/dz/bnrVhMIrgc9vURz+2X23EMJBLIogR
+        wyDmRBAjhuJ6RBAjhqJ6RhAjhmKWiCBGDEUsGUGMGJJbI4IYMSS1ZgQxYkhmiwhixJDElhHEiGFjGSKI
+        EcNGMkUQI4aVZYwgRgwryRxBjBgWViGCGDEspFIEMWLorGIEMWLopHIEMWKYaYQIYsRwoZEiiBHDmUaM
+        IEYMJ1oqgm8Td1uNGB6wVASv2+aE8Hzibu6I4YglI5A5IejdiGEFS0cgc0MQYljQGhFIjxCEGBawVgTS
+        KwQhho7WjEB6hiDE0MHaEUjvEIQYZtgiAlkiBCGGC2wVgSwVghDDGbaMQJYMQYjhBFtHIEuHIMRwjwwR
+        yBohCDFMyBKBrBWCEMMtmSKQNUMQYmiyRSBrhyC7jiFjBLJFCLLLGLJGIFuFILuKIXMEsmUIsosYskcg
+        W4cgQ8dQIQLJEIIMGUOVCCRLCDJUDJUikEwhyBAxVItAsoUgpWOoGIFkDEFKxlA1AskagpSKoXIEkjkE
+        KRFD9QgkewiSOoYRIpAKIUjKGEaJQKqEIKliGCkCqRSCpIhhtAikWgiyaQwjRiAVQ5BNYhg1Aqkagqwa
+        w8gRSOUQZJUYRo9Aqocgi8cwegQyQgiyVAxXbYcXNxe9li0CGSUE6R3Dm7Z/esWQMQIZKQTpFcN/EYS5
+        MWSNQEYLQebGMBlBuDSGzBHIiCHIpTHcG0E4N4bsEcioIci5MZwUQTg1hgoRyMghyKkxnBVBeCiGKhHI
+        6CHIQzFcFEE4FkOlCGQPIcixGGZFEO7GUC0C2UsIcjeGLhGEiKFiBLKnECRi6BpBeHpzVrS3EOT65sQt
+        ewwBEwgBRggwQoARAowQYIQAIwQYIcAIAUYIMEKAEQKMEGCEACMEGCHACAFGCDBCgBECjBBghAAjBBgh
+        wAgBRggwQoARAowQYIQAIwQYIcAIAUYIMEKAEQKMEGCEACMEGCHACAFGCDBCgBECjBBghAAjBBghwAgB
+        RggwQoARAowQYIQAIwQYIcAIAUYIMEKAEQKMEGCEACMEGCHACAFGCDBCgBECjBBghAAjBBghwAgBRggw
+        QoARAowQYIQAIwQYIcAIAUYIMEKAEQKMEGCEACMEGCHACAFGCLCXba8u3A4cDn8A0PDLSDpKNqMAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripButton2.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="toolStripButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="toolStripButton2.Text" xml:space="preserve">
+    <value>toolStripButton2</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="toolStripLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 22</value>
+  </data>
+  <data name="toolStripLabel1.Text" xml:space="preserve">
+    <value>搜索：</value>
+  </data>
+  <data name="toolStripTextBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 25</value>
+  </data>
+  <data name="toolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="toolStripButton1.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="toolStripButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="toolStripButton1.Text" xml:space="preserve">
+    <value>toolStripButton1</value>
+  </data>
+  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>247, 17</value>
+  </metadata>
+  <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 307</value>
+  </data>
+  <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>493, 22</value>
+  </data>
+  <data name="statusStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="statusStrip1.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.Name" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 17</value>
+  </data>
+  <data name="toolStripStatusLabel1.Text" xml:space="preserve">
+    <value>状态：</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainer1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 50</value>
+  </data>
+  <data name="treeView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="treeView1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="treeView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 257</value>
+  </data>
+  <data name="treeView1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;treeView1.Name" xml:space="preserve">
+    <value>treeView1</value>
+  </data>
+  <data name="&gt;&gt;treeView1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;treeView1.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;treeView1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.Name" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.Parent" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="columnHeader1.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="columnHeader2.Text" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="columnHeader3.Text" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="columnHeader4.Text" xml:space="preserve">
+    <value>修改时间</value>
+  </data>
+  <data name="listView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>368, 17</value>
+  </metadata>
+  <data name="imageList1.ImageSize" type="System.Drawing.Size, System.Drawing">
+    <value>16, 16</value>
+  </data>
+  <data name="listView1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="listView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 257</value>
+  </data>
+  <data name="listView1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;listView1.Name" xml:space="preserve">
+    <value>listView1</value>
+  </data>
+  <data name="&gt;&gt;listView1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listView1.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;listView1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">
+    <value>splitContainer1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>493, 257</value>
+  </data>
+  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
+    <value>164</value>
+  </data>
+  <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Name" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="toolStripButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQRSURBVHhe7djriSRHEIXRMUEmyASZIhPkkUxYk2TKmrBq
+        kAaaJGa3H1U3MivPgQ/mZ0NlQMR8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANDuR3NAo2ookwGNqqFMBjSqhjIZ0KgaymRAo2ookwGNqqFM
+        BjSqhjIZ0KgaymRAo2ookwGNqqFMBjSqhjIZ0KgaymRAo2ookwGNqqFMBjSqhjIZ0KgaymRAo2ookwGN
+        qqFMBjSqhjIZ0KgaymRAo2ookwGNqqFMBjSqhjIZ0KgaymRAo2ookwGNqqFMBjSqhjIZ0KgaymRAo2oo
+        kwGNqqFMBjSqhjIZTX6/9c9/f7KxaiiT0eDPW99v+QCMA5mOsL9v+QB8un8LHRHyufL7ANwb30M6Au5X
+        fh+Ae9WbSMbJxpV/jL1VbyIZJ/lq5R9jb9WbSMYJfrbyj7G36k0k42C/WvnH2Fv1JpJxkEdX/jH2Vr2J
+        ZBzgmZV/jL1VbyIZb3p25R9jb9WbSMaLXl35x9hb9SaS8YJ3Vv4x9la9iWQ86d2Vf4y9VW8iGQ86auUf
+        Y2/Vm0jGA45c+cfYW/UmkvELR6/8Y+ytehPJ+MJZK/8Ye6veRDIKZ678Y+ytehPJGJy98o+xt+pNJON/
+        qZV/jL1VbyIZN8mVf4y9VW8i2fbSK/8Ye6veRLJtda38Y+ytehPJttS58o+xt+pNJNtO98o/xt6qN5Fs
+        G7Os/GPsrXoTybYw08o/xt6qN5Hs8mZb+cfYW/Umkl3WrCv/GHur3kSyS5p55R9jb9WbSHY5s6/80kxd
+        xiorvzRTl7DSyi/N1PKs/NLrLcvKL73fkqz80jEtx8ovHdcyrPzS8S3Byi+d0/Ss/NJ5TcvKL53flKz8
+        UqbpWPmlXNOw8kv5pmDll3pqZ+WX+mr37Vb1wySd3xT+uuUEkPJN449b/gkoZZvKb7ecBFKuKTkJpEzT
+        chJI5zc1J4F0bktwEkjntAwngXR8S3ESSMe2JCeBdEzLchJI77c0J4H0XpfgJJBe6zKcBNLzXYqTQHqu
+        S1rpJABOsMpJAJxkhZMAONnMJwEQMOtJAITMeBIAYTOdBECDWU4CoMkMJwHQrPMkACbQdRIAk+g4CYDJ
+        JE8CYEKpkwCYVOIkACZ35kkALOCskwBYxBknAbCYI08CYEFHnQTAoo44CYDFvXMSABfw6kkAXMQrJwFw
+        Mc+cBMAFPXoSABf1yEkAXNzPTgJgA1+dBMAmqpMA2Mz9SQBs6PMkAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANjYx8e/EmD2GqLZnJEAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripButton3.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="toolStripButton3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="toolStripButton3.Text" xml:space="preserve">
+    <value>toolStripButton3</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>493, 329</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>文件管理器</value>
+  </data>
+  <data name="&gt;&gt;文件ToolStripMenuItem.Name" xml:space="preserve">
+    <value>文件ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;文件ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;新建文件ToolStripMenuItem.Name" xml:space="preserve">
+    <value>新建文件ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;新建文件ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;新建文件夹ToolStripMenuItem.Name" xml:space="preserve">
+    <value>新建文件夹ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;新建文件夹ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
+    <value>toolStripMenuItem2</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;剪切ToolStripMenuItem.Name" xml:space="preserve">
+    <value>剪切ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;剪切ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;复制ToolStripMenuItem.Name" xml:space="preserve">
+    <value>复制ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;复制ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;粘贴ToolStripMenuItem.Name" xml:space="preserve">
+    <value>粘贴ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;粘贴ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;退出ToolStripMenuItem.Name" xml:space="preserve">
+    <value>退出ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;退出ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;查看ToolStripMenuItem.Name" xml:space="preserve">
+    <value>查看ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;查看ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;平铺ToolStripMenuItem.Name" xml:space="preserve">
+    <value>平铺ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;平铺ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;图标ToolStripMenuItem.Name" xml:space="preserve">
+    <value>图标ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;图标ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;列表ToolStripMenuItem.Name" xml:space="preserve">
+    <value>列表ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;列表ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;详细信息ToolStripMenuItem.Name" xml:space="preserve">
+    <value>详细信息ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;详细信息ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;备份ToolStripMenuItem.Name" xml:space="preserve">
+    <value>备份ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;备份ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;加密ToolStripMenuItem.Name" xml:space="preserve">
+    <value>加密ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;加密ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel2.Name" xml:space="preserve">
+    <value>toolStripLabel2</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripTextBox2.Name" xml:space="preserve">
+    <value>toolStripTextBox2</value>
+  </data>
+  <data name="&gt;&gt;toolStripTextBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton2.Name" xml:space="preserve">
+    <value>toolStripButton2</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel1.Name" xml:space="preserve">
+    <value>toolStripLabel1</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripTextBox1.Name" xml:space="preserve">
+    <value>toolStripTextBox1</value>
+  </data>
+  <data name="&gt;&gt;toolStripTextBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton1.Name" xml:space="preserve">
+    <value>toolStripButton1</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel1.Name" xml:space="preserve">
+    <value>toolStripStatusLabel1</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;columnHeader1.Name" xml:space="preserve">
+    <value>columnHeader1</value>
+  </data>
+  <data name="&gt;&gt;columnHeader1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;columnHeader2.Name" xml:space="preserve">
+    <value>columnHeader2</value>
+  </data>
+  <data name="&gt;&gt;columnHeader2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;columnHeader3.Name" xml:space="preserve">
+    <value>columnHeader3</value>
+  </data>
+  <data name="&gt;&gt;columnHeader3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;columnHeader4.Name" xml:space="preserve">
+    <value>columnHeader4</value>
+  </data>
+  <data name="&gt;&gt;columnHeader4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Name" xml:space="preserve">
+    <value>imageList1</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton3.Name" xml:space="preserve">
+    <value>toolStripButton3</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Form1</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>
