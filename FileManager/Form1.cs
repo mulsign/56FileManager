@@ -14,7 +14,7 @@ namespace FileManager
 {
     public partial class Form1 : Form
     {
-        //全局静态数据成员，指的是当前所处路径
+        //全局静态数据成员，指的是当前所处目录路径
         public static string AllPath = "";
 
         public Form1()
