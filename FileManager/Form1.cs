@@ -373,5 +373,10 @@ namespace FileManager
             else if (e.KeyCode == Keys.Enter)
                 listView1_DoubleClick(sender, e);
         }
+
+        private void closeForm1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -40,7 +40,7 @@
             this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.粘贴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeForm1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.平铺ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.图标ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -122,7 +122,7 @@
             this.粘贴ToolStripMenuItem,
             this.删除ToolStripMenuItem,
             this.toolStripSeparator4,
-            this.退出ToolStripMenuItem});
+            this.closeForm1ToolStripMenuItem});
             this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
             resources.ApplyResources(this.文件ToolStripMenuItem, "文件ToolStripMenuItem");
             // 
@@ -169,10 +169,11 @@
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             // 
-            // 退出ToolStripMenuItem
+            // closeForm1ToolStripMenuItem
             // 
-            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            resources.ApplyResources(this.退出ToolStripMenuItem, "退出ToolStripMenuItem");
+            this.closeForm1ToolStripMenuItem.Name = "closeForm1ToolStripMenuItem";
+            resources.ApplyResources(this.closeForm1ToolStripMenuItem, "closeForm1ToolStripMenuItem");
+            this.closeForm1ToolStripMenuItem.Click += new System.EventHandler(this.closeForm1ToolStripMenuItem_Click);
             // 
             // 查看ToolStripMenuItem
             // 
@@ -532,7 +533,7 @@
         private System.Windows.Forms.ToolStripMenuItem 剪切ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 复制ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 粘贴ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeForm1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 平铺ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 图标ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 列表ToolStripMenuItem;

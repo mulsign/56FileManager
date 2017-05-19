@@ -121,6 +121,84 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="新建文件ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="新建文件ToolStripMenuItem.Text" xml:space="preserve">
+    <value>新建文件</value>
+  </data>
+  <data name="新建文件夹ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="新建文件夹ToolStripMenuItem.Text" xml:space="preserve">
+    <value>新建文件夹</value>
+  </data>
+  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="toolStripMenuItem2.Text" xml:space="preserve">
+    <value>重命名</value>
+  </data>
+  <data name="剪切ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="剪切ToolStripMenuItem.Text" xml:space="preserve">
+    <value>剪切</value>
+  </data>
+  <data name="复制ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="复制ToolStripMenuItem.Text" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="粘贴ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="粘贴ToolStripMenuItem.Text" xml:space="preserve">
+    <value>粘贴</value>
+  </data>
+  <data name="删除ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="删除ToolStripMenuItem.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
+  <data name="closeForm1ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="closeForm1ToolStripMenuItem.Text" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="文件ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
+  </data>
+  <data name="文件ToolStripMenuItem.Text" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="查看ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
+  </data>
+  <data name="查看ToolStripMenuItem.Text" xml:space="preserve">
+    <value>查看</value>
+  </data>
+  <data name="备份ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
+  </data>
+  <data name="备份ToolStripMenuItem.Text" xml:space="preserve">
+    <value>备份</value>
+  </data>
+  <data name="加密ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
+  </data>
+  <data name="加密ToolStripMenuItem.Text" xml:space="preserve">
+    <value>加密</value>
+  </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -146,66 +224,6 @@
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="文件ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="文件ToolStripMenuItem.Text" xml:space="preserve">
-    <value>文件</value>
-  </data>
-  <data name="新建文件ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="新建文件ToolStripMenuItem.Text" xml:space="preserve">
-    <value>新建文件</value>
-  </data>
-  <data name="新建文件夹ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 22</value>
-  </data>
-  <data name="新建文件夹ToolStripMenuItem.Text" xml:space="preserve">
-    <value>新建文件夹</value>
-  </data>
-  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 6</value>
-  </data>
-  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 22</value>
-  </data>
-  <data name="toolStripMenuItem2.Text" xml:space="preserve">
-    <value>重命名</value>
-  </data>
-  <data name="剪切ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 22</value>
-  </data>
-  <data name="剪切ToolStripMenuItem.Text" xml:space="preserve">
-    <value>剪切</value>
-  </data>
-  <data name="复制ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 22</value>
-  </data>
-  <data name="复制ToolStripMenuItem.Text" xml:space="preserve">
-    <value>复制</value>
-  </data>
-  <data name="粘贴ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 22</value>
-  </data>
-  <data name="粘贴ToolStripMenuItem.Text" xml:space="preserve">
-    <value>粘贴</value>
-  </data>
-  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 6</value>
-  </data>
-  <data name="退出ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 22</value>
-  </data>
-  <data name="退出ToolStripMenuItem.Text" xml:space="preserve">
-    <value>退出</value>
-  </data>
-  <data name="查看ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="查看ToolStripMenuItem.Text" xml:space="preserve">
-    <value>查看</value>
-  </data>
   <data name="平铺ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 22</value>
   </data>
@@ -229,18 +247,6 @@
   </data>
   <data name="详细信息ToolStripMenuItem.Text" xml:space="preserve">
     <value>详细信息</value>
-  </data>
-  <data name="备份ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="备份ToolStripMenuItem.Text" xml:space="preserve">
-    <value>备份</value>
-  </data>
-  <data name="加密ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="加密ToolStripMenuItem.Text" xml:space="preserve">
-    <value>加密</value>
   </data>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>137, 17</value>
@@ -311,6 +317,9 @@
   <data name="toolStripButton3.Text" xml:space="preserve">
     <value>toolStripButton3</value>
   </data>
+  <data name="toolStripButton3.ToolTipText" xml:space="preserve">
+    <value>进入</value>
+  </data>
   <data name="toolStripButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIIAAACoCAYAAAAsNDatAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -342,6 +351,9 @@
   </data>
   <data name="toolStripButton2.Text" xml:space="preserve">
     <value>toolStripButton2</value>
+  </data>
+  <data name="toolStripButton2.ToolTipText" xml:space="preserve">
+    <value>向上</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 25</value>
@@ -421,6 +433,9 @@
   </data>
   <data name="toolStripButton1.Text" xml:space="preserve">
     <value>toolStripButton1</value>
+  </data>
+  <data name="toolStripButton1.ToolTipText" xml:space="preserve">
+    <value>搜索</value>
   </data>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>247, 17</value>
@@ -582,6 +597,15 @@
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>483, 17</value>
   </metadata>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 126</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
+    <value>contextMenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>112, 22</value>
   </data>
@@ -604,7 +628,7 @@
     <value>复制</value>
   </data>
   <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>112, 22</value>
   </data>
   <data name="toolStripMenuItem3.Text" xml:space="preserve">
     <value>删除</value>
@@ -617,15 +641,6 @@
   </data>
   <data name="renameToolStripMenuItem.Text" xml:space="preserve">
     <value>重命名</value>
-  </data>
-  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 126</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
-    <value>contextMenuStrip1</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>648, 17</value>
@@ -705,12 +720,6 @@
   <data name="属性ToolStripMenuItem.Text" xml:space="preserve">
     <value>属性</value>
   </data>
-  <data name="删除ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="删除ToolStripMenuItem.Text" xml:space="preserve">
-    <value>删除</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -777,10 +786,10 @@
   <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;退出ToolStripMenuItem.Name" xml:space="preserve">
-    <value>退出ToolStripMenuItem</value>
+  <data name="&gt;&gt;closeForm1ToolStripMenuItem.Name" xml:space="preserve">
+    <value>closeForm1ToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;退出ToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;closeForm1ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;查看ToolStripMenuItem.Name" xml:space="preserve">
