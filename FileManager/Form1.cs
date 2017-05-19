@@ -314,7 +314,7 @@ namespace FileManager
             
             if (e.Button == MouseButtons.Right && listView1.SelectedItems.Count == 1)
             {
-                string fileName = listView1.SelectedItems[0].Text; //获取选中文件名  
+                string fileName = listView1.SelectedItems[0].Text;  
                 Point p = new Point(e.X, e.Y);
                 contextMenuStrip1.Show(listView1, p);
             }
