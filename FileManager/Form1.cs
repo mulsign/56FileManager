@@ -318,15 +318,60 @@ namespace FileManager
                 Point p = new Point(e.X, e.Y);
                 contextMenuStrip1.Show(listView1, p);
             }
-            else if(e.Button == MouseButtons.Right && listView1.SelectedItems.Count <= 0)
+            else if(listView1.SelectedItems.Count <= 0)
             {
-                Point p = new Point(e.X, e.Y);
-                contextMenuStrip1 = contextMenuStrip2;
-                contextMenuStrip1.Show(listView1, p);
+                listView1.ContextMenuStrip = contextMenuStrip2;
             }
 
         }
 
+        public void DeleteFile(string dir)
+        {
+            if (Directory.Exists(dir)) //如果存在这个文件夹删除之 
+            {
+                foreach (string d in Directory.GetFileSystemEntries(dir))
+                {
+                    if (File.Exists(d))
+                        File.Delete(d); //直接删除其中的文件 
+                    else
+                        DeleteFile(d); //递归删除子文件夹 
+                }
+                Directory.Delete(dir); //删除已空文件夹 
+            }
+            else if (File.Exists(dir))
+                File.Delete(dir);
+            else
+                MessageBox.Show(dir + " 该文件夹不存在"); //如果文件夹不存在则提示 
+        }
 
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count >= 1)
+            {
+                try
+                {
+                    for (int i = 0; i < listView1.SelectedItems.Count; i++)
+                    {
+                        string fullName = AllPath + listView1.SelectedItems[i].Text;
+                        DeleteFile(fullName);
+                    }
+                    GetListViewItem(AllPath, imageList1, listView1);
+                }
+                catch { }
+
+            }
+            else
+            {
+                MessageBox.Show("请先选择一个文件或文件夹");
+            }
+        }
+
+        private void listView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+                DeleteToolStripMenuItem_Click(sender, e);
+            else if (e.KeyCode == Keys.Enter)
+                listView1_DoubleClick(sender, e);
+        }
     }
 }
