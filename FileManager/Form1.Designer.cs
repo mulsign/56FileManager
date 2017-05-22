@@ -39,6 +39,7 @@
             this.剪切ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.粘贴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.closeForm1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,7 +89,6 @@
             this.粘贴ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.属性ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -163,6 +163,12 @@
             // 
             this.粘贴ToolStripMenuItem.Name = "粘贴ToolStripMenuItem";
             resources.ApplyResources(this.粘贴ToolStripMenuItem, "粘贴ToolStripMenuItem");
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            resources.ApplyResources(this.删除ToolStripMenuItem, "删除ToolStripMenuItem");
+            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -485,12 +491,6 @@
             // 
             this.属性ToolStripMenuItem.Name = "属性ToolStripMenuItem";
             resources.ApplyResources(this.属性ToolStripMenuItem, "属性ToolStripMenuItem");
-            // 
-            // 删除ToolStripMenuItem
-            // 
-            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            resources.ApplyResources(this.删除ToolStripMenuItem, "删除ToolStripMenuItem");
-            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // Form1
             // 
