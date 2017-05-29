@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.IO;
 using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.Devices;
 
 namespace FileManager
 {
@@ -239,7 +238,7 @@ namespace FileManager
                 ToolStripButton3_Click(sender, e);               
         }
 
-        public void NewFile(ListView lv, ImageList imagelist, string strName, int intflag)
+        public void NewFileDir(ListView lv, ImageList imagelist, string strName, int intflag)
         {
             string strPath = AllPath + strName;
             if (intflag == 0)
@@ -290,17 +289,32 @@ namespace FileManager
 
         private void 新建文件ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            NewFile();
+        }
+
+        private void NewFile()
+        {
             string filename = Interaction.InputBox("请输入新建文件名", "新建文件", DateTime.Now.ToString("yyyyMMddhhmmss") + ".txt", -1, -1);
-            NewFile(listView1, imageList1, filename, 0);
+            NewFileDir(listView1, imageList1, filename, 0);
         }
 
         private void 新建文件夹ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            NewDir();
+        }
+
+        private void NewDir()
+        {
             string dirname = Interaction.InputBox("请输入新建文件夹名", "新建文件夹", DateTime.Now.ToString("yyyyMMddhhmmss"), -1, -1);
-            NewFile(listView1, imageList1, dirname, 1);
+            NewFileDir(listView1, imageList1, dirname, 1);
         }
 
         private void ToolStripMenuItem2_Click_1(object sender, EventArgs e)
+        {
+            Renamefile();
+        }
+
+        private void Renamefile()
         {
             if (listView1.SelectedItems.Count == 1)
             {
@@ -312,7 +326,7 @@ namespace FileManager
                     GetListViewItem(AllPath, imageList1, listView1);
                 }
                 catch { }
-                
+
             }
             else
             {
