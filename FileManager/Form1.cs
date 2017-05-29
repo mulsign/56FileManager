@@ -174,7 +174,7 @@ namespace FileManager
         }
         
         //向上一层文件夹目录路径
-        private void backPath(ListView lv, ImageList imagelist)
+        private void BackPath(ListView lv, ImageList imagelist)
         {
             if (AllPath.Length != 3 && AllPath.Length != 0)
             {
@@ -188,7 +188,7 @@ namespace FileManager
         }
 
         //将当前路径显示在地址栏
-        private void showAddress()
+        private void ShowAddress()
         {
             toolStripTextBox2.Text = AllPath;
         }
@@ -196,28 +196,28 @@ namespace FileManager
 
 
         //树状视图控件中选择一项后的事件，选择不同磁盘，在列表中显示该磁盘文件及文件夹信息
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        private void TreeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             GetPath(e.Node.FullPath.PadLeft(5).Remove(0,5), imageList1, listView1, 0);
-            showAddress();
+            ShowAddress();
         }
 
         //双击listview列表控件中项目，打开其或其子文件夹
-        private void listView1_DoubleClick(object sender, EventArgs e)
+        private void ListView1_DoubleClick(object sender, EventArgs e)
         {
             GetPath(listView1.SelectedItems[0].Text, imageList1, listView1, 1);
-            showAddress();
+            ShowAddress();
         }
 
         //单击向上按钮事件
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void ToolStripButton2_Click(object sender, EventArgs e)
         {
-            backPath(listView1, imageList1);
-            showAddress();
+            BackPath(listView1, imageList1);
+            ShowAddress();
         }
 
         //通过输入地址栏信息点击进入按钮或回车键来查看文件和文件夹信息
-        private void toolStripButton3_Click(object sender, EventArgs e)
+        private void ToolStripButton3_Click(object sender, EventArgs e)
         {
             try
             {
@@ -225,7 +225,7 @@ namespace FileManager
                 if (AllPath.Substring(AllPath.Length - 1) != "\\")
                     AllPath = AllPath + "\\";
                 GetListViewItem(AllPath, imageList1, listView1);
-                showAddress();
+                ShowAddress();
             }
             catch(Exception ex)
             {
@@ -233,10 +233,10 @@ namespace FileManager
             }
         }
 
-        private void toolStripTextBox2_KeyDown(object sender, KeyEventArgs e)
+        private void ToolStripTextBox2_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
-                toolStripButton3_Click(sender, e);               
+                ToolStripButton3_Click(sender, e);               
         }
 
         public void NewFile(ListView lv, ImageList imagelist, string strName, int intflag)
@@ -244,11 +244,25 @@ namespace FileManager
             string strPath = AllPath + strName;
             if (intflag == 0)
             {
-                File.Create(strPath).Close();
+                try
+                {
+                    File.Create(strPath).Close();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else if(intflag == 1)
             {
-                Directory.CreateDirectory(strPath);
+                try
+                {
+                    Directory.CreateDirectory(strPath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             GetListViewItem(AllPath, imagelist, listView1);
         }
@@ -286,7 +300,7 @@ namespace FileManager
             NewFile(listView1, imageList1, dirname, 1);
         }
 
-        private void toolStripMenuItem2_Click_1(object sender, EventArgs e)
+        private void ToolStripMenuItem2_Click_1(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count == 1)
             {
@@ -306,7 +320,7 @@ namespace FileManager
             }
         }
 
-        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        private void ListView1_MouseClick(object sender, MouseEventArgs e)
         {
              
             listView1.MultiSelect = false;
@@ -366,15 +380,15 @@ namespace FileManager
             }
         }
 
-        private void listView1_KeyDown(object sender, KeyEventArgs e)
+        private void ListView1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
                 DeleteToolStripMenuItem_Click(sender, e);
             else if (e.KeyCode == Keys.Enter)
-                listView1_DoubleClick(sender, e);
+                ListView1_DoubleClick(sender, e);
         }
 
-        private void closeForm1ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CloseForm1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
