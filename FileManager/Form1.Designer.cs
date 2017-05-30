@@ -317,6 +317,7 @@
             this.listView1.DoubleClick += new System.EventHandler(this.ListView1_DoubleClick);
             this.listView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListView1_KeyDown);
             this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListView1_MouseClick);
+            this.listView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListView1_MouseClick);
             // 
             // columnHeader1
             // 

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -99,7 +99,7 @@ namespace FileManager
                     FileInfo fi = new FileInfo(files[i]);
                     string Filetype = fi.Name.Substring(fi.Name.LastIndexOf(".") + 1, fi.Name.Length - fi.Name.LastIndexOf(".") - 1);
                     string newtype = Filetype.ToLower();
-                    if (newtype == "sys" || newtype == "ini" || newtype == "bin" || newtype == "log" || newtype == "com" || newtype == "db") 
+                    if (newtype == "sys" || newtype == "ini" || newtype == "log" || newtype == "com" || newtype == "db") 
                     { }
                     else
                     {
@@ -125,7 +125,10 @@ namespace FileManager
                     }
                 }
             }
-            catch { }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         //将指定路径下文件或文件夹显示在列表视图控件listview中
@@ -340,15 +343,18 @@ namespace FileManager
             listView1.MultiSelect = false;
             //鼠标右键
             
-            if (e.Button == MouseButtons.Right && listView1.SelectedItems.Count == 1)
+            if (e.Button == MouseButtons.Right)
             {
-                string fileName = listView1.SelectedItems[0].Text;  
                 Point p = new Point(e.X, e.Y);
-                contextMenuStrip1.Show(listView1, p);
-            }
-            else if(listView1.SelectedItems.Count <= 0)
-            {
-                listView1.ContextMenuStrip = contextMenuStrip2;
+                if (listView1.SelectedItems.Count == 1)
+                {
+                    string fileName = listView1.SelectedItems[0].Text;
+                    contextMenuStrip1.Show(listView1, p);
+                }
+                else if(listView1.SelectedItems.Count == 0)
+                {
+                    contextMenuStrip2.Show(listView1, p);
+                }
             }
 
         }
