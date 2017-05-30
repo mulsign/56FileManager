@@ -56,7 +56,31 @@ namespace FileManager
             public string szTypeName;                               //文件类型名
         }
 
-        
+        [StructLayout(LayoutKind.Sequential)]
+        public struct SHELLEXECUTEINFO
+        {
+            public int cbSize;
+            public uint fMask;
+            public IntPtr hwnd;
+            [MarshalAs(UnmanagedType.LPStr)]
+            public string lpVerb;
+            [MarshalAs(UnmanagedType.LPStr)]
+            public string lpFile;
+            [MarshalAs(UnmanagedType.LPStr)]
+            public string lpParameters;
+            [MarshalAs(UnmanagedType.LPStr)]
+            public string lpDirectory;
+            public int nShow;
+            public IntPtr hInstApp;
+            public IntPtr lpIDList;
+            [MarshalAs(UnmanagedType.LPStr)]
+            public string lpClass;
+            public IntPtr hkeyClass;
+            public uint dwHotKey;
+            public IntPtr hIcon;
+            public IntPtr hProcess;
+        }
+
         //声明API函数SHGetFileInfo，利用该函数可以获取文件或文件夹图标
         [DllImport("shell32.dll", EntryPoint = "SHGetFileInfo")]
         public static extern IntPtr SHGetFileInfo(string pszPath, uint dwFileAttributes, ref SHFILEINFO psfi, uint cbSizeFileInfo, uint Flags);
@@ -312,6 +336,14 @@ namespace FileManager
             NewFileDir(listView1, imageList1, dirname, 1);
         }
 
+        private void 属性ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if(listView1.SelectedItems.Count == 1)
+                ShowFileProperties(AllPath + listView1.SelectedItems[0].Text);
+            else
+                ShowFileProperties(AllPath);
+        }
+
         private void ToolStripMenuItem2_Click_1(object sender, EventArgs e)
         {
             Renamefile();
@@ -335,6 +367,23 @@ namespace FileManager
             {
                 MessageBox.Show("请先选择一个文件或文件夹");
             }
+        }
+
+        private const int SW_SHOW = 5;
+        private const uint SEE_MASK_INVOKEIDLIST = 12;
+
+        [DllImport("shell32.dll")]
+        static extern bool ShellExecuteEx(ref SHELLEXECUTEINFO lpExecInfo);
+
+        public static void ShowFileProperties(string Filename)
+        {
+            SHELLEXECUTEINFO info = new SHELLEXECUTEINFO();
+            info.cbSize = Marshal.SizeOf(info);
+            info.lpVerb = "properties";
+            info.lpFile = Filename;
+            info.nShow = SW_SHOW;
+            info.fMask = SEE_MASK_INVOKEIDLIST;
+            ShellExecuteEx(ref info);
         }
 
         private void ListView1_MouseClick(object sender, MouseEventArgs e)
@@ -412,5 +461,7 @@ namespace FileManager
         {
             Close();
         }
+
+        
     }
 }
