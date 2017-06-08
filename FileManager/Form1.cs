@@ -36,8 +36,8 @@ namespace FileManager
                 TreeNode tnMyDrives = new TreeNode(strDrive);
                 node0.Nodes.Add(tnMyDrives);
             }
-            TreeNode node1 = new TreeNode("备份文件");
-            TreeNode node2 = new TreeNode("加密文件");
+            TreeNode node1 = new TreeNode("备份文件夹");
+            TreeNode node2 = new TreeNode("加密文件夹");
             treeView1.Nodes.Add(node1);
             treeView1.Nodes.Add(node2);
             treeView1.EndUpdate();

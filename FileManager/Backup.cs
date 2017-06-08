@@ -2,7 +2,6 @@
 using System.Configuration;
 using System.Data.SQLite;
 using System.IO;
-using DBUtility.SQLite;
 
 class Bakuper
 {
@@ -10,13 +9,22 @@ class Bakuper
     private static string destPath = ConfigurationManager.AppSettings["destPath"];
     private static int fileCount;
     private static int copyCount;
+    private static string connectionString = string.Empty;
     private static SQLiteConnection conn;
+    private static string TB_NAME = "dc";
+
+    public static void SetConnectionString(string datasource, string password, int version = 3)
+    {
+        connectionString = string.Format("Data Source={0};Version={1};password={2}",
+            datasource, version, password);
+    }
 
     public static int BackupFile()
     {
         fileCount = 0;
         copyCount = 0;
-        conn = SQLiteHelper.
+        SetConnectionString("C:/user/AppData/Local/56FM/backup.db", "123456");
+        conn = new SQLiteConnection(connectionString);
         DirectoryInfo theFolder = new DirectoryInfo(srcPath);
         ReadFolderList(theFolder);
         ReadFileList(theFolder);
@@ -40,7 +48,7 @@ class Bakuper
         FileInfo[] fileInfo = folder.GetFiles();
         foreach (FileInfo NextFile in fileInfo)  //遍历文件
         {
-            SQLiteCommand cmd = new SQLiteCommand("select lastWriteTime from " + SQLHelper.TB_NAME + " where fullPath='" + NextFile.FullName + "'", conn);
+            SQLiteCommand cmd = new SQLiteCommand("select lastWriteTime from " + TB_NAME + " where fullPath='" + NextFile.FullName + "'", conn);
             object obj = cmd.ExecuteScalar();
             if (obj == null)//如果是新增的文件
             {
@@ -52,8 +60,10 @@ class Bakuper
                     newFolder.Create();
                 }
                 NextFile.CopyTo(newpath + "\\" + NextFile.Name, true);
-                SQLiteCommand cmdInsert = new SQLiteCommand(conn);//实例化SQL命令  
-                cmdInsert.CommandText = "insert into " + SQLHelper.TB_NAME + " values(@fullPath, @lastWriteTime)";//设置带参SQL语句  
+                SQLiteCommand cmdInsert = new SQLiteCommand(conn)
+                {
+                    CommandText = "insert into " + TB_NAME + " values(@fullPath, @lastWriteTime)"//设置带参SQL语句  
+                };//实例化SQL命令  
                 cmdInsert.Parameters.AddRange(new[] {//添加参数  
                            new SQLiteParameter("@fullPath", NextFile.FullName),
                            new SQLiteParameter("@lastWriteTime", NextFile.LastWriteTime)
@@ -75,7 +85,7 @@ class Bakuper
                     }
                     NextFile.CopyTo(newpath + "\\" + NextFile.Name, true);
                     SQLiteCommand cmdUpdate = new SQLiteCommand(conn);//实例化SQL命令  
-                    cmdUpdate.CommandText = "update " + SQLHelper.TB_NAME + " set lastWriteTime=@lastWriteTime where fullPath=@fullPath";
+                    cmdUpdate.CommandText = "update " + TB_NAME + " set lastWriteTime=@lastWriteTime where fullPath=@fullPath";
                     cmdUpdate.Parameters.AddRange(new[] {//添加参数  
                            new SQLiteParameter("@fullPath", NextFile.FullName),
                            new SQLiteParameter("@lastWriteTime", NextFile.LastWriteTime)
