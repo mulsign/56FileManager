@@ -17,33 +17,13 @@ namespace FileManager
     {
         //全局静态数据成员，指的是当前所处目录路径
         public static string AllPath = "";
+        BasicFileFunc MainForm = new BasicFileFunc();
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        //窗口导入时初始化根文件夹，包括物理磁盘和备份、加密文件夹
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            string[] strDrivers = Environment.GetLogicalDrives();
-
-            treeView1.BeginUpdate();
-            TreeNode node0 = new TreeNode("我的电脑");
-            treeView1.Nodes.Add(node0);
-            foreach(string strDrive in strDrivers)
-            {
-                TreeNode tnMyDrives = new TreeNode(strDrive);
-                node0.Nodes.Add(tnMyDrives);
-            }
-            TreeNode node1 = new TreeNode("备份文件夹");
-            TreeNode node2 = new TreeNode("加密文件夹");
-            treeView1.Nodes.Add(node1);
-            treeView1.Nodes.Add(node2);
-            treeView1.EndUpdate();
-
-        }
-        
         //调用API函数所需参数结构体
         public struct SHFILEINFO
         {
@@ -97,11 +77,11 @@ namespace FileManager
             {
                 string[] dirs = Directory.GetDirectories(path);
                 string[] files = Directory.GetFiles(path);
-                for(int i = 0; i < dirs.Length; i++)
+                for (int i = 0; i < dirs.Length; i++)
                 {
                     string[] info = new string[4];
                     DirectoryInfo dir = new DirectoryInfo(dirs[i]);
-                    if(dir.Name == "$RECYCLE.BIN" || dir.Name == "RECYCLED" || dir.Name == "Recycled" || dir.Name == "System Volume Information")
+                    if (dir.Name == "$RECYCLE.BIN" || dir.Name == "RECYCLED" || dir.Name == "Recycled" || dir.Name == "System Volume Information")
                     { }
                     else
                     {
@@ -117,13 +97,13 @@ namespace FileManager
                         DestoryIcon(shfi.hIcon);
                     }
                 }
-                for(int i = 0; i < files.Length; i++)
+                for (int i = 0; i < files.Length; i++)
                 {
                     string[] info = new string[4];
                     FileInfo fi = new FileInfo(files[i]);
                     string Filetype = fi.Name.Substring(fi.Name.LastIndexOf(".") + 1, fi.Name.Length - fi.Name.LastIndexOf(".") - 1);
                     string newtype = Filetype.ToLower();
-                    if (newtype == "sys" || newtype == "ini" || newtype == "log" || newtype == "com" || newtype == "db") 
+                    if (newtype == "sys" || newtype == "ini" || newtype == "log" || newtype == "com" || newtype == "db")
                     { }
                     else
                     {
@@ -149,14 +129,14 @@ namespace FileManager
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
         //将指定路径下文件或文件夹显示在列表视图控件listview中
-        public void GetPath(string path, ImageList imglist, ListView lv, int intflag)
+        public void GetPath(string AllPath, string path, ImageList imglist, ListView lv, int intflag)
         {
             string pp = "";
             string uu = "";
@@ -193,14 +173,14 @@ namespace FileManager
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
         //向上一层文件夹目录路径
-        private void BackPath(ListView lv, ImageList imagelist)
+        public void BackPath(string AllPath, ListView lv, ImageList imagelist)
         {
             if (AllPath.Length != 3 && AllPath.Length != 0)
             {
@@ -209,10 +189,67 @@ namespace FileManager
                 GetListViewItem(NewPath, imagelist, lv);
 
                 AllPath = NewPath;
-                
+
             }
         }
 
+        public void Renamefile(string AllPath, ListView listView1, ImageList imageList1)
+        {
+            if (listView1.SelectedItems.Count == 1)
+            {
+                try
+                {
+                    string FileName = AllPath + listView1.SelectedItems[0].Text;
+                    string newFileName = Interaction.InputBox("请输入新文件(夹)名", "重命名", listView1.SelectedItems[0].Text, -1, -1);
+                    FileSystem.Rename(FileName, AllPath + newFileName);
+                    GetListViewItem(AllPath, imageList1, listView1);
+                }
+                catch { }
+            }
+            else
+            {
+                MessageBox.Show("请先选择一个文件或文件夹");
+            }
+        }
+
+        private const int SW_SHOW = 5;
+        private const uint SEE_MASK_INVOKEIDLIST = 12;
+
+        [DllImport("shell32.dll")]
+        public static extern bool ShellExecuteEx(ref SHELLEXECUTEINFO lpExecInfo);
+
+        public void ShowFileProperties(string Filename)
+        {
+            SHELLEXECUTEINFO info = new SHELLEXECUTEINFO();
+            info.cbSize = Marshal.SizeOf(info);
+            info.lpVerb = "properties";
+            info.lpFile = Filename;
+            info.nShow = SW_SHOW;
+            info.fMask = SEE_MASK_INVOKEIDLIST;
+            ShellExecuteEx(ref info);
+        }
+
+        //窗口导入时初始化根文件夹，包括物理磁盘和备份、加密文件夹
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            string[] strDrivers = Environment.GetLogicalDrives();
+
+            treeView1.BeginUpdate();
+            TreeNode node0 = new TreeNode("我的电脑");
+            treeView1.Nodes.Add(node0);
+            foreach(string strDrive in strDrivers)
+            {
+                TreeNode tnMyDrives = new TreeNode(strDrive);
+                node0.Nodes.Add(tnMyDrives);
+            }
+            TreeNode node1 = new TreeNode("备份文件夹");
+            TreeNode node2 = new TreeNode("加密文件夹");
+            treeView1.Nodes.Add(node1);
+            treeView1.Nodes.Add(node2);
+            treeView1.EndUpdate();
+
+        }
+        
         //将当前路径显示在地址栏
         private void ShowAddress()
         {
@@ -224,21 +261,21 @@ namespace FileManager
         //树状视图控件中选择一项后的事件，选择不同磁盘，在列表中显示该磁盘文件及文件夹信息
         private void TreeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            GetPath(e.Node.FullPath.PadLeft(5).Remove(0,5), imageList1, listView1, 0);
+            GetPath(AllPath, e.Node.FullPath.PadLeft(5).Remove(0,5), imageList1, listView1, 0);
             ShowAddress();
         }
 
         //双击listview列表控件中项目，打开其或其子文件夹
         private void ListView1_DoubleClick(object sender, EventArgs e)
         {
-            GetPath(listView1.SelectedItems[0].Text, imageList1, listView1, 1);
+            GetPath(AllPath, listView1.SelectedItems[0].Text, imageList1, listView1, 1);
             ShowAddress();
         }
 
         //单击向上按钮事件
         private void ToolStripButton2_Click(object sender, EventArgs e)
         {
-            BackPath(listView1, imageList1);
+            BackPath(AllPath, listView1, imageList1);
             ShowAddress();
         }
 
@@ -346,45 +383,12 @@ namespace FileManager
 
         private void ToolStripMenuItem2_Click_1(object sender, EventArgs e)
         {
-            Renamefile();
+            Renamefile(AllPath,listView1,imageList1);
         }
 
-        private void Renamefile()
-        {
-            if (listView1.SelectedItems.Count == 1)
-            {
-                try
-                {
-                    string FileName = AllPath + listView1.SelectedItems[0].Text;
-                    string newFileName = Interaction.InputBox("请输入新文件(夹)名", "重命名", listView1.SelectedItems[0].Text, -1, -1);
-                    FileSystem.Rename(FileName, AllPath + newFileName);
-                    GetListViewItem(AllPath, imageList1, listView1);
-                }
-                catch { }
+        
 
-            }
-            else
-            {
-                MessageBox.Show("请先选择一个文件或文件夹");
-            }
-        }
-
-        private const int SW_SHOW = 5;
-        private const uint SEE_MASK_INVOKEIDLIST = 12;
-
-        [DllImport("shell32.dll")]
-        static extern bool ShellExecuteEx(ref SHELLEXECUTEINFO lpExecInfo);
-
-        public static void ShowFileProperties(string Filename)
-        {
-            SHELLEXECUTEINFO info = new SHELLEXECUTEINFO();
-            info.cbSize = Marshal.SizeOf(info);
-            info.lpVerb = "properties";
-            info.lpFile = Filename;
-            info.nShow = SW_SHOW;
-            info.fMask = SEE_MASK_INVOKEIDLIST;
-            ShellExecuteEx(ref info);
-        }
+       
 
         private void ListView1_MouseClick(object sender, MouseEventArgs e)
         {

@@ -182,25 +182,25 @@
     <value>文件</value>
   </data>
   <data name="平铺ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="平铺ToolStripMenuItem.Text" xml:space="preserve">
     <value>平铺</value>
   </data>
   <data name="图标ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="图标ToolStripMenuItem.Text" xml:space="preserve">
     <value>图标</value>
   </data>
   <data name="列表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="列表ToolStripMenuItem.Text" xml:space="preserve">
     <value>列表</value>
   </data>
   <data name="详细信息ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="详细信息ToolStripMenuItem.Text" xml:space="preserve">
     <value>详细信息</value>
@@ -216,6 +216,18 @@
   </data>
   <data name="新建备份文件夹ToolStripMenuItem.Text" xml:space="preserve">
     <value>新建备份文件夹</value>
+  </data>
+  <data name="删除备份文件夹ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="删除备份文件夹ToolStripMenuItem.Text" xml:space="preserve">
+    <value>删除备份文件夹</value>
+  </data>
+  <data name="备份设置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="备份设置ToolStripMenuItem.Text" xml:space="preserve">
+    <value>备份设置</value>
   </data>
   <data name="备份ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 21</value>
@@ -813,6 +825,12 @@
   <data name="&gt;&gt;备份ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;新建备份文件夹ToolStripMenuItem.Name" xml:space="preserve">
+    <value>新建备份文件夹ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;新建备份文件夹ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;加密ToolStripMenuItem.Name" xml:space="preserve">
     <value>加密ToolStripMenuItem</value>
   </data>
@@ -1017,10 +1035,16 @@
   <data name="&gt;&gt;属性ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;新建备份文件夹ToolStripMenuItem.Name" xml:space="preserve">
-    <value>新建备份文件夹ToolStripMenuItem</value>
+  <data name="&gt;&gt;删除备份文件夹ToolStripMenuItem.Name" xml:space="preserve">
+    <value>删除备份文件夹ToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;新建备份文件夹ToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;删除备份文件夹ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;备份设置ToolStripMenuItem.Name" xml:space="preserve">
+    <value>备份设置ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;备份设置ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
