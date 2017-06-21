@@ -48,7 +48,6 @@
             this.列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.详细信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.备份ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.新建备份文件夹ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.加密ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
@@ -75,7 +74,6 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.属性ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.查看ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.平铺ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,8 +87,7 @@
             this.粘贴ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.属性ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除备份文件夹ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.备份设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.属性ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -218,17 +215,8 @@
             // 
             // 备份ToolStripMenuItem
             // 
-            this.备份ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.新建备份文件夹ToolStripMenuItem,
-            this.删除备份文件夹ToolStripMenuItem,
-            this.备份设置ToolStripMenuItem});
             this.备份ToolStripMenuItem.Name = "备份ToolStripMenuItem";
             resources.ApplyResources(this.备份ToolStripMenuItem, "备份ToolStripMenuItem");
-            // 
-            // 新建备份文件夹ToolStripMenuItem
-            // 
-            this.新建备份文件夹ToolStripMenuItem.Name = "新建备份文件夹ToolStripMenuItem";
-            resources.ApplyResources(this.新建备份文件夹ToolStripMenuItem, "新建备份文件夹ToolStripMenuItem");
             // 
             // 加密ToolStripMenuItem
             // 
@@ -406,12 +394,6 @@
             resources.ApplyResources(this.renameToolStripMenuItem, "renameToolStripMenuItem");
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem2_Click_1);
             // 
-            // 属性ToolStripMenuItem1
-            // 
-            this.属性ToolStripMenuItem1.Name = "属性ToolStripMenuItem1";
-            resources.ApplyResources(this.属性ToolStripMenuItem1, "属性ToolStripMenuItem1");
-            this.属性ToolStripMenuItem1.Click += new System.EventHandler(this.属性ToolStripMenuItem1_Click);
-            // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -499,15 +481,11 @@
             resources.ApplyResources(this.属性ToolStripMenuItem, "属性ToolStripMenuItem");
             this.属性ToolStripMenuItem.Click += new System.EventHandler(this.属性ToolStripMenuItem1_Click);
             // 
-            // 删除备份文件夹ToolStripMenuItem
+            // 属性ToolStripMenuItem1
             // 
-            this.删除备份文件夹ToolStripMenuItem.Name = "删除备份文件夹ToolStripMenuItem";
-            resources.ApplyResources(this.删除备份文件夹ToolStripMenuItem, "删除备份文件夹ToolStripMenuItem");
-            // 
-            // 备份设置ToolStripMenuItem
-            // 
-            this.备份设置ToolStripMenuItem.Name = "备份设置ToolStripMenuItem";
-            resources.ApplyResources(this.备份设置ToolStripMenuItem, "备份设置ToolStripMenuItem");
+            this.属性ToolStripMenuItem1.Name = "属性ToolStripMenuItem1";
+            resources.ApplyResources(this.属性ToolStripMenuItem1, "属性ToolStripMenuItem1");
+            this.属性ToolStripMenuItem1.Click += new System.EventHandler(this.属性ToolStripMenuItem1_Click);
             // 
             // Form1
             // 
@@ -594,9 +572,6 @@
         private System.Windows.Forms.ToolStripMenuItem 详细信息ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 属性ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 新建备份文件夹ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 删除备份文件夹ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 备份设置ToolStripMenuItem;
     }
 }
 
