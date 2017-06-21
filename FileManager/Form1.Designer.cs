@@ -74,6 +74,7 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.属性ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.查看ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.平铺ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,7 +88,12 @@
             this.粘贴ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.属性ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.属性ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -96,6 +102,10 @@
             this.splitContainer1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -290,11 +300,11 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.treeView1);
+            this.splitContainer1.Panel1.Controls.Add(this.listView2);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.listView1);
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             // 
             // treeView1
             // 
@@ -394,6 +404,12 @@
             resources.ApplyResources(this.renameToolStripMenuItem, "renameToolStripMenuItem");
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem2_Click_1);
             // 
+            // 属性ToolStripMenuItem1
+            // 
+            this.属性ToolStripMenuItem1.Name = "属性ToolStripMenuItem1";
+            resources.ApplyResources(this.属性ToolStripMenuItem1, "属性ToolStripMenuItem1");
+            this.属性ToolStripMenuItem1.Click += new System.EventHandler(this.属性ToolStripMenuItem1_Click);
+            // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -481,11 +497,48 @@
             resources.ApplyResources(this.属性ToolStripMenuItem, "属性ToolStripMenuItem");
             this.属性ToolStripMenuItem.Click += new System.EventHandler(this.属性ToolStripMenuItem1_Click);
             // 
-            // 属性ToolStripMenuItem1
+            // splitContainer2
             // 
-            this.属性ToolStripMenuItem1.Name = "属性ToolStripMenuItem1";
-            resources.ApplyResources(this.属性ToolStripMenuItem1, "属性ToolStripMenuItem1");
-            this.属性ToolStripMenuItem1.Click += new System.EventHandler(this.属性ToolStripMenuItem1_Click);
+            resources.ApplyResources(this.splitContainer2, "splitContainer2");
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.treeView1);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.listView1);
+            // 
+            // listView2
+            // 
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+            resources.ApplyResources(this.listView2, "listView2");
+            this.listView2.LargeImageList = this.imageList1;
+            this.listView2.Name = "listView2";
+            this.listView2.SmallImageList = this.imageList1;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader5
+            // 
+            resources.ApplyResources(this.columnHeader5, "columnHeader5");
+            // 
+            // columnHeader6
+            // 
+            resources.ApplyResources(this.columnHeader6, "columnHeader6");
+            // 
+            // columnHeader7
+            // 
+            resources.ApplyResources(this.columnHeader7, "columnHeader7");
+            // 
+            // columnHeader8
+            // 
+            resources.ApplyResources(this.columnHeader8, "columnHeader8");
             // 
             // Form1
             // 
@@ -507,6 +560,10 @@
             this.splitContainer1.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -572,6 +629,12 @@
         private System.Windows.Forms.ToolStripMenuItem 详细信息ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 属性ToolStripMenuItem1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
     }
 }
 
