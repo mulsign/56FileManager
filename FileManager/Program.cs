@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +17,18 @@ namespace FileManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            int flag = 0;
+            string[] CurrentDirFile = Directory.GetFiles(Environment.CurrentDirectory);
+            for (int i = 0; i < CurrentDirFile.Length; i++)
+            {
+                FileInfo fi = new FileInfo(CurrentDirFile[i]);
+                if (fi.Name == "56settings")
+                    flag = 1;
+            }
+            if (flag == 1)
+                Application.Run(new Form1());
+            else
+                Application.Run(new Form());
         }
     }
 }
