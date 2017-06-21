@@ -365,7 +365,7 @@ namespace FileManager
             }
             else
             {
-                MessageBox.Show("请先选择一个文件或文件夹");
+                MessageBox.Show("请选择文件", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

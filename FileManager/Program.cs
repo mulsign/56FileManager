@@ -17,18 +17,17 @@ namespace FileManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            int flag = 0;
-            string[] CurrentDirFile = Directory.GetFiles(Environment.CurrentDirectory);
-            for (int i = 0; i < CurrentDirFile.Length; i++)
+            if (File.Exists(Setting.SettingFile))
             {
-                FileInfo fi = new FileInfo(CurrentDirFile[i]);
-                if (fi.Name == "56settings")
-                    flag = 1;
+                Application.Run(new Form1_0());
             }
-            if (flag == 1)
-                Application.Run(new Form1());
             else
-                Application.Run(new Form());
+            {
+                Application.Run(new Form0_0());
+            }
+            if(Setting.Flag == 1)
+                Application.Run(new Form1());
+
         }
     }
 }
