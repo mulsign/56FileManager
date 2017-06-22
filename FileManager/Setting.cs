@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace FileManager
 {
-    class Setting
+    public static class  Setting
     {
-        private static string settingFile = Environment.CurrentDirectory + "//" + "56settings";
+        private static string settingFile = Environment.CurrentDirectory + "//" + "56settings.db";
 
         public static string SettingFile { get => settingFile; set => settingFile = value; }
         public static int Flag { get => flag; set => flag = value; }
@@ -26,6 +24,20 @@ namespace FileManager
             MD5 md5 = new MD5CryptoServiceProvider();
             byte[] result = md5.ComputeHash(Encoding.Default.GetBytes(strText));
             return Encoding.Default.GetString(result);
+        }
+        /// <summary> 隐藏文件夹 </summary>  
+        /// <param name="path">文件名(包含路径)</param>  
+        public static void HidDir(string path)
+        {
+            DirectoryInfo dir = new DirectoryInfo(path);
+            File.SetAttributes(path, dir.Attributes | FileAttributes.Hidden);
+        }
+        /// <summary> 设置文件隐藏 </summary>  
+        /// <param name="path">文件名(包含路径)</param>  
+        public static void HidFile(string path)
+        {
+            FileInfo fi = new FileInfo(path);
+            File.SetAttributes(path, fi.Attributes | FileAttributes.Hidden);
         }
     }
 }

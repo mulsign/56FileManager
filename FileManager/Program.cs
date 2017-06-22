@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FileManager
@@ -24,9 +21,16 @@ namespace FileManager
             else
             {
                 Application.Run(new Form0_0());
+                Application.Run(new Form0_1());
+                
             }
-            if(Setting.Flag == 1)
+            if (Setting.Flag == 1)
+            {
+                Directory.CreateDirectory(Environment.CurrentDirectory + "\\temp");
+                Setting.HidDir(Environment.CurrentDirectory + "\\temp");
                 Application.Run(new Form1());
+            }
+                
 
         }
     }

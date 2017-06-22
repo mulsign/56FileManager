@@ -81,6 +81,7 @@
             this.passWDC.Size = new System.Drawing.Size(209, 21);
             this.passWDC.TabIndex = 4;
             this.passWDC.UseSystemPasswordChar = true;
+            this.passWDC.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passWDC_KeyDown);
             // 
             // button1
             // 
@@ -96,13 +97,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 284);
+            this.ClientSize = new System.Drawing.Size(384, 281);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.passWDC);
             this.Controls.Add(this.passWD);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(400, 320);
+            this.MinimumSize = new System.Drawing.Size(400, 320);
             this.Name = "Form0_0";
             this.Text = "初次运行——56FileManager";
             this.ResumeLayout(false);

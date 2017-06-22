@@ -36,11 +36,10 @@ namespace FileManager
                 TreeNode tnMyDrives = new TreeNode(strDrive);
                 node0.Nodes.Add(tnMyDrives);
             }
-            TreeNode node1 = new TreeNode("备份文件");
-            TreeNode node2 = new TreeNode("加密文件");
-            treeView1.Nodes.Add(node1);
-            treeView1.Nodes.Add(node2);
             treeView1.EndUpdate();
+
+            GetPath(Environment.CurrentDirectory + "\\Crypt", crypt_iL, crypt_lv, 0);
+            GetPath(Environment.CurrentDirectory + "\\Backup", backup_iL, backup_lv, 0);
 
         }
         
@@ -462,6 +461,21 @@ namespace FileManager
             Close();
         }
 
-        
+        private void Crypt_lv_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void Crypt_lv_DragDrop(object sender, DragEventArgs e)
+        {
+        }
+    
     }
 }

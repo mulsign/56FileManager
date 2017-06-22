@@ -6,6 +6,7 @@ namespace FileManager
 {
     public partial class Form0_0: Form
     {
+
         public Form0_0()
         {
             InitializeComponent();
@@ -15,13 +16,14 @@ namespace FileManager
         {
             if(passWD.Text == passWDC.Text)
             {
-                string password = Setting.MD5Encrypt(passWD.Text);
-                FileStream myFs = new FileStream(Setting.SettingFile, FileMode.CreateNew);
-                StreamWriter mySw = new StreamWriter(myFs);
-                mySw.Write(password + "\n");
-                mySw.Close();
-                myFs.Close();
-                Setting.Flag = 1;
+                SQLiteHelper initial = new SQLiteHelper();
+                initial = new SQLiteHelper();
+                SQLiteHelper.passwd = System.Text.Encoding.Default.GetBytes(Setting.MD5Encrypt(passWD.Text));
+                initial.CreatNewDatabase();
+
+                initial.DatabaseInitial(0, Setting.MD5Encrypt(passWD.Text));
+                initial.DatabaseInitial(1);
+
                 Close();
             }
             else
@@ -29,6 +31,14 @@ namespace FileManager
                 MessageBox.Show("两次密码不一致，请重新输入！");
                 passWD.Clear();
                 passWDC.Clear();
+            }
+        }
+
+        private void passWDC_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Button1_Click(sender, e);
             }
         }
     }

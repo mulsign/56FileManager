@@ -2,69 +2,48 @@
 using System.Configuration;
 using System.Data.SQLite;
 using System.IO;
-using DBUtility.SQLite;
 
-class Bakuper
+namespace FileManager
 {
-    private static string srcPath = ConfigurationManager.AppSettings["srcPath"];
-    private static string destPath = ConfigurationManager.AppSettings["destPath"];
-    private static int fileCount;
-    private static int copyCount;
-    private static SQLiteConnection conn;
-    private static string TB_NAME = "";
-
-    public static int BackupFile()
+    class Backuper
     {
-        fileCount = 0;
-        copyCount = 0;
-        DirectoryInfo theFolder = new DirectoryInfo(srcPath);
-        ReadFolderList(theFolder);
-        ReadFileList(theFolder);
-        Console.WriteLine("共备份了" + copyCount + "个文件");
-        return copyCount;
-    }
+        private static string srcPath = Environment.CurrentDirectory + "\\Backup";
+        private static string destPath = ConfigurationManager.AppSettings["destPath"];
+        private static int fileCount;
+        private static int copyCount;
+        private static SQLiteConnection conn;
+        private static string TB_NAME = "";
 
-    static void ReadFolderList(DirectoryInfo folder)
-    {
-        DirectoryInfo[] dirInfo = folder.GetDirectories();
-        //遍历文件夹
-        foreach (DirectoryInfo NextFolder in dirInfo)
+        public static int BackupFile()
         {
-            ReadFolderList(NextFolder);
-            ReadFileList(NextFolder);
+            fileCount = 0;
+            copyCount = 0;
+            DirectoryInfo theFolder = new DirectoryInfo(srcPath);
+            ReadFolderList(theFolder);
+            ReadFileList(theFolder);
+            Console.WriteLine("共备份了" + copyCount + "个文件");
+            return copyCount;
         }
-    }
 
-    static void ReadFileList(DirectoryInfo folder)
-    {
-        FileInfo[] fileInfo = folder.GetFiles();
-        foreach (FileInfo NextFile in fileInfo)  //遍历文件
+        static void ReadFolderList(DirectoryInfo folder)
         {
-            SQLiteCommand cmd = new SQLiteCommand("select lastWriteTime from " + TB_NAME + " where fullPath='" + NextFile.FullName + "'", conn);
-            object obj = cmd.ExecuteScalar();
-            if (obj == null)//如果是新增的文件
+            DirectoryInfo[] dirInfo = folder.GetDirectories();
+            //遍历文件夹
+            foreach (DirectoryInfo NextFolder in dirInfo)
             {
-                String fullname = folder.FullName;
-                string newpath = fullname.Replace(srcPath, destPath + "\\" + DateTime.Now.ToString("yyyyMMdd"));
-                DirectoryInfo newFolder = new DirectoryInfo(newpath);
-                if (!newFolder.Exists)
-                {
-                    newFolder.Create();
-                }
-                NextFile.CopyTo(newpath + "\\" + NextFile.Name, true);
-                SQLiteCommand cmdInsert = new SQLiteCommand(conn);//实例化SQL命令  
-                cmdInsert.CommandText = "insert into " + TB_NAME + " values(@fullPath, @lastWriteTime)";//设置带参SQL语句  
-                cmdInsert.Parameters.AddRange(new[] {//添加参数  
-                           new SQLiteParameter("@fullPath", NextFile.FullName),
-                           new SQLiteParameter("@lastWriteTime", NextFile.LastWriteTime)
-                       });
-                cmdInsert.ExecuteNonQuery();
-                copyCount++;
+                ReadFolderList(NextFolder);
+                ReadFileList(NextFolder);
             }
-            else
+        }
+
+        static void ReadFileList(DirectoryInfo folder)
+        {
+            FileInfo[] fileInfo = folder.GetFiles();
+            foreach (FileInfo NextFile in fileInfo)  //遍历文件
             {
-                DateTime lastWriteTime = DateTime.Parse(obj.ToString());
-                if (!DateTime.Parse(NextFile.LastWriteTime.ToString()).Equals(lastWriteTime))
+                SQLiteCommand cmd = new SQLiteCommand("select lastWriteTime from " + TB_NAME + " where fullPath='" + NextFile.FullName + "'", conn);
+                object obj = cmd.ExecuteScalar();
+                if (obj == null)//如果是新增的文件
                 {
                     String fullname = folder.FullName;
                     string newpath = fullname.Replace(srcPath, destPath + "\\" + DateTime.Now.ToString("yyyyMMdd"));
@@ -74,19 +53,42 @@ class Bakuper
                         newFolder.Create();
                     }
                     NextFile.CopyTo(newpath + "\\" + NextFile.Name, true);
-                    SQLiteCommand cmdUpdate = new SQLiteCommand(conn);//实例化SQL命令  
-                    cmdUpdate.CommandText = "update " + TB_NAME + " set lastWriteTime=@lastWriteTime where fullPath=@fullPath";
-                    cmdUpdate.Parameters.AddRange(new[] {//添加参数  
+                    SQLiteCommand cmdInsert = new SQLiteCommand(conn);//实例化SQL命令  
+                    cmdInsert.CommandText = "insert into " + TB_NAME + " values(@fullPath, @lastWriteTime)";//设置带参SQL语句  
+                    cmdInsert.Parameters.AddRange(new[] {//添加参数  
                            new SQLiteParameter("@fullPath", NextFile.FullName),
                            new SQLiteParameter("@lastWriteTime", NextFile.LastWriteTime)
                        });
-                    cmdUpdate.ExecuteNonQuery();
-
+                    cmdInsert.ExecuteNonQuery();
                     copyCount++;
                 }
-            }
+                else
+                {
+                    DateTime lastWriteTime = DateTime.Parse(obj.ToString());
+                    if (!DateTime.Parse(NextFile.LastWriteTime.ToString()).Equals(lastWriteTime))
+                    {
+                        String fullname = folder.FullName;
+                        string newpath = fullname.Replace(srcPath, destPath + "\\" + DateTime.Now.ToString("yyyyMMdd"));
+                        DirectoryInfo newFolder = new DirectoryInfo(newpath);
+                        if (!newFolder.Exists)
+                        {
+                            newFolder.Create();
+                        }
+                        NextFile.CopyTo(newpath + "\\" + NextFile.Name, true);
+                        SQLiteCommand cmdUpdate = new SQLiteCommand(conn);//实例化SQL命令  
+                        cmdUpdate.CommandText = "update " + TB_NAME + " set lastWriteTime=@lastWriteTime where fullPath=@fullPath";
+                        cmdUpdate.Parameters.AddRange(new[] {//添加参数  
+                           new SQLiteParameter("@fullPath", NextFile.FullName),
+                           new SQLiteParameter("@lastWriteTime", NextFile.LastWriteTime)
+                       });
+                        cmdUpdate.ExecuteNonQuery();
 
-            Console.WriteLine("已遍历第" + (++fileCount) + "个文件");
+                        copyCount++;
+                    }
+                }
+
+                Console.WriteLine("已遍历第" + (++fileCount) + "个文件");
+            }
         }
     }
 }

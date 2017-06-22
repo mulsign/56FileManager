@@ -49,23 +49,28 @@
             this.详细信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.备份ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.加密ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.backup_lv = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.crypt_lv = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -88,24 +93,29 @@
             this.粘贴ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.属性ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.backup_iL = new System.Windows.Forms.ImageList(this.components);
+            this.crypt_iL = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
-            this.contextMenuStrip2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -233,66 +243,6 @@
             this.加密ToolStripMenuItem.Name = "加密ToolStripMenuItem";
             resources.ApplyResources(this.加密ToolStripMenuItem, "加密ToolStripMenuItem");
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel2,
-            this.toolStripTextBox2,
-            this.toolStripButton3,
-            this.toolStripButton2,
-            this.toolStripSeparator1,
-            this.toolStripLabel1,
-            this.toolStripTextBox1,
-            this.toolStripButton1});
-            resources.ApplyResources(this.toolStrip1, "toolStrip1");
-            this.toolStrip1.Name = "toolStrip1";
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            resources.ApplyResources(this.toolStripLabel2, "toolStripLabel2");
-            // 
-            // toolStripTextBox2
-            // 
-            this.toolStripTextBox2.Name = "toolStripTextBox2";
-            resources.ApplyResources(this.toolStripTextBox2, "toolStripTextBox2");
-            this.toolStripTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ToolStripTextBox2_KeyDown);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButton3, "toolStripButton3");
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Click += new System.EventHandler(this.ToolStripButton3_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButton2, "toolStripButton2");
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Click += new System.EventHandler(this.ToolStripButton2_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            resources.ApplyResources(this.toolStripLabel1, "toolStripLabel1");
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            resources.ApplyResources(this.toolStripTextBox1, "toolStripTextBox1");
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
-            this.toolStripButton1.Name = "toolStripButton1";
-            // 
             // splitContainer1
             // 
             resources.ApplyResources(this.splitContainer1, "splitContainer1");
@@ -300,11 +250,114 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.listView2);
+            this.splitContainer1.Panel1.Controls.Add(this.tabControl1);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.backup_lv);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // backup_lv
+            // 
+            this.backup_lv.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+            resources.ApplyResources(this.backup_lv, "backup_lv");
+            this.backup_lv.LargeImageList = this.imageList1;
+            this.backup_lv.Name = "backup_lv";
+            this.backup_lv.SmallImageList = this.imageList1;
+            this.backup_lv.UseCompatibleStateImageBehavior = false;
+            this.backup_lv.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader5
+            // 
+            resources.ApplyResources(this.columnHeader5, "columnHeader5");
+            // 
+            // columnHeader6
+            // 
+            resources.ApplyResources(this.columnHeader6, "columnHeader6");
+            // 
+            // columnHeader7
+            // 
+            resources.ApplyResources(this.columnHeader7, "columnHeader7");
+            // 
+            // columnHeader8
+            // 
+            resources.ApplyResources(this.columnHeader8, "columnHeader8");
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            resources.ApplyResources(this.imageList1, "imageList1");
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.crypt_lv);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // crypt_lv
+            // 
+            this.crypt_lv.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12});
+            resources.ApplyResources(this.crypt_lv, "crypt_lv");
+            this.crypt_lv.LargeImageList = this.imageList1;
+            this.crypt_lv.Name = "crypt_lv";
+            this.crypt_lv.SmallImageList = this.imageList1;
+            this.crypt_lv.UseCompatibleStateImageBehavior = false;
+            this.crypt_lv.View = System.Windows.Forms.View.Details;
+            this.crypt_lv.DragDrop += new System.Windows.Forms.DragEventHandler(this.Crypt_lv_DragDrop);
+            this.crypt_lv.DragEnter += new System.Windows.Forms.DragEventHandler(this.Crypt_lv_DragEnter);
+            // 
+            // columnHeader9
+            // 
+            resources.ApplyResources(this.columnHeader9, "columnHeader9");
+            // 
+            // columnHeader10
+            // 
+            resources.ApplyResources(this.columnHeader10, "columnHeader10");
+            // 
+            // columnHeader11
+            // 
+            resources.ApplyResources(this.columnHeader11, "columnHeader11");
+            // 
+            // columnHeader12
+            // 
+            resources.ApplyResources(this.columnHeader12, "columnHeader12");
+            // 
+            // splitContainer2
+            // 
+            resources.ApplyResources(this.splitContainer2, "splitContainer2");
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.treeView1);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.listView1);
             // 
             // treeView1
             // 
@@ -345,12 +398,6 @@
             // columnHeader4
             // 
             resources.ApplyResources(this.columnHeader4, "columnHeader4");
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            resources.ApplyResources(this.imageList1, "imageList1");
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // contextMenuStrip1
             // 
@@ -497,48 +544,58 @@
             resources.ApplyResources(this.属性ToolStripMenuItem, "属性ToolStripMenuItem");
             this.属性ToolStripMenuItem.Click += new System.EventHandler(this.属性ToolStripMenuItem1_Click);
             // 
-            // splitContainer2
+            // toolStripLabel2
             // 
-            resources.ApplyResources(this.splitContainer2, "splitContainer2");
-            this.splitContainer2.Name = "splitContainer2";
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            resources.ApplyResources(this.toolStripLabel2, "toolStripLabel2");
             // 
-            // splitContainer2.Panel1
+            // toolStripTextBox2
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.treeView1);
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            resources.ApplyResources(this.toolStripTextBox2, "toolStripTextBox2");
+            this.toolStripTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ToolStripTextBox2_KeyDown);
             // 
-            // splitContainer2.Panel2
+            // toolStripButton3
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.listView1);
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButton3, "toolStripButton3");
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Click += new System.EventHandler(this.ToolStripButton3_Click);
             // 
-            // listView2
+            // toolStripButton2
             // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8});
-            resources.ApplyResources(this.listView2, "listView2");
-            this.listView2.LargeImageList = this.imageList1;
-            this.listView2.Name = "listView2";
-            this.listView2.SmallImageList = this.imageList1;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButton2, "toolStripButton2");
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.ToolStripButton2_Click);
             // 
-            // columnHeader5
+            // toolStripSeparator1
             // 
-            resources.ApplyResources(this.columnHeader5, "columnHeader5");
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
-            // columnHeader6
+            // toolStrip1
             // 
-            resources.ApplyResources(this.columnHeader6, "columnHeader6");
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel2,
+            this.toolStripTextBox2,
+            this.toolStripButton3,
+            this.toolStripButton2,
+            this.toolStripSeparator1});
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
+            this.toolStrip1.Name = "toolStrip1";
             // 
-            // columnHeader7
+            // backup_iL
             // 
-            resources.ApplyResources(this.columnHeader7, "columnHeader7");
+            this.backup_iL.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            resources.ApplyResources(this.backup_iL, "backup_iL");
+            this.backup_iL.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // columnHeader8
+            // crypt_iL
             // 
-            resources.ApplyResources(this.columnHeader8, "columnHeader8");
+            this.crypt_iL.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            resources.ApplyResources(this.crypt_iL, "crypt_iL");
+            this.crypt_iL.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // Form1
             // 
@@ -552,18 +609,21 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.contextMenuStrip2.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -587,12 +647,6 @@
         private System.Windows.Forms.ToolStripMenuItem 图标ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 列表ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 详细信息ToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ListView listView1;
@@ -601,9 +655,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem1;
@@ -630,11 +681,27 @@
         private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 属性ToolStripMenuItem1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.ListView backup_lv;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ListView crypt_lv;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ImageList backup_iL;
+        private System.Windows.Forms.ImageList crypt_iL;
     }
 }
 
