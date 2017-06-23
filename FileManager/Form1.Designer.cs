@@ -96,6 +96,9 @@
             this.copyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.备份ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.加密ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.属性ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -112,6 +115,8 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.属性ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crypt_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.添加加密文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.回复加密文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backup_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -130,6 +135,7 @@
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
+            this.crypt_contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -547,6 +553,9 @@
             this.copyToolStripMenuItem1,
             this.toolStripMenuItem3,
             this.toolStripSeparator3,
+            this.备份ToolStripMenuItem1,
+            this.加密ToolStripMenuItem1,
+            this.toolStripSeparator10,
             this.renameToolStripMenuItem,
             this.属性ToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
@@ -583,6 +592,22 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
+            // 
+            // 备份ToolStripMenuItem1
+            // 
+            this.备份ToolStripMenuItem1.Name = "备份ToolStripMenuItem1";
+            resources.ApplyResources(this.备份ToolStripMenuItem1, "备份ToolStripMenuItem1");
+            // 
+            // 加密ToolStripMenuItem1
+            // 
+            this.加密ToolStripMenuItem1.Name = "加密ToolStripMenuItem1";
+            resources.ApplyResources(this.加密ToolStripMenuItem1, "加密ToolStripMenuItem1");
+            this.加密ToolStripMenuItem1.Click += new System.EventHandler(this.加密ToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            resources.ApplyResources(this.toolStripSeparator10, "toolStripSeparator10");
             // 
             // renameToolStripMenuItem
             // 
@@ -685,8 +710,21 @@
             // 
             // crypt_contextMenuStrip
             // 
+            this.crypt_contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.添加加密文件ToolStripMenuItem,
+            this.回复加密文件ToolStripMenuItem});
             this.crypt_contextMenuStrip.Name = "crypt_contextMenuStrip";
             resources.ApplyResources(this.crypt_contextMenuStrip, "crypt_contextMenuStrip");
+            // 
+            // 添加加密文件ToolStripMenuItem
+            // 
+            this.添加加密文件ToolStripMenuItem.Name = "添加加密文件ToolStripMenuItem";
+            resources.ApplyResources(this.添加加密文件ToolStripMenuItem, "添加加密文件ToolStripMenuItem");
+            // 
+            // 回复加密文件ToolStripMenuItem
+            // 
+            this.回复加密文件ToolStripMenuItem.Name = "回复加密文件ToolStripMenuItem";
+            resources.ApplyResources(this.回复加密文件ToolStripMenuItem, "回复加密文件ToolStripMenuItem");
             // 
             // backup_contextMenuStrip
             // 
@@ -701,6 +739,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -726,6 +765,7 @@
             this.toolStrip1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
+            this.crypt_contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -816,6 +856,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ContextMenuStrip crypt_contextMenuStrip;
         private System.Windows.Forms.ContextMenuStrip backup_contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem 备份ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 加密ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripMenuItem 添加加密文件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 回复加密文件ToolStripMenuItem;
     }
 }
 

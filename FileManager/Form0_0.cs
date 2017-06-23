@@ -18,7 +18,7 @@ namespace FileManager
             {
                 SQLiteHelper initial = new SQLiteHelper();
                 initial = new SQLiteHelper();
-                SQLiteHelper.passwd = System.Text.Encoding.Default.GetBytes(Setting.MD5Encrypt(passWD.Text));
+                SQLiteHelper.passwd = System.Text.Encoding.UTF8.GetBytes(Setting.MD5Encrypt(passWD.Text));
                 initial.CreatNewDatabase();
 
                 initial.DatabaseInitial(0, Setting.MD5Encrypt(passWD.Text));

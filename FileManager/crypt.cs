@@ -2,12 +2,12 @@
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Forms;
 
 namespace FileManager
 {
     class Crypt
     {
-        private static string srcPath = Environment.CurrentDirectory + "\\Crypt";
         private static string computerName = Environment.MachineName;
 
         private static byte[] AES_Encrypt(byte[] bytesToBeEncryted, byte[] passwordBytes)
@@ -60,6 +60,7 @@ namespace FileManager
             SQLiteHelper insertkey = new SQLiteHelper();
 
             insertkey.ConnectToDatabase(1);
+            MessageBox.Show(file);
             insertkey.InsertKeys(file, password);
 
             byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
@@ -74,17 +75,24 @@ namespace FileManager
 
         public static void EncryptDirectory(string location)
         {
-
-            string[] files = Directory.GetFiles(location);
-            string[] childDirectory = Directory.GetDirectories(location);
-            for (int i = 0; i < files.Length; i++)
+            if (Directory.Exists(location))
             {
-                EncryptFile(files[i]);
+                string[] files = Directory.GetFiles(location);
+                string[] childDirectory = Directory.GetDirectories(location);
+                for (int i = 0; i < files.Length; i++)
+                {
+                    EncryptFile(files[i]);
+                }
+                for (int i = 0; i < childDirectory.Length; i++)
+                {
+                    EncryptDirectory(childDirectory[i]);
+                }
             }
-            for (int i = 0; i < childDirectory.Length; i++)
+            else if (File.Exists(location))
             {
-                EncryptDirectory(childDirectory[i]);
+                EncryptFile(location);
             }
+            
         }
 
         private static byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
@@ -121,6 +129,8 @@ namespace FileManager
         public static void DecryptFile(string file)
         {
             SQLiteHelper selectKey = new SQLiteHelper();
+
+            selectKey.ConnectToDatabase(1);
             string password = selectKey.SelectKeys(file);
 
             byte[] bytesToBeDecrypted = File.ReadAllBytes(file);
@@ -128,11 +138,12 @@ namespace FileManager
             passwordBytes = SHA256.Create().ComputeHash(passwordBytes);
 
             byte[] bytesDecrypted = AES_Decrypt(bytesToBeDecrypted, passwordBytes);
-
             File.WriteAllBytes(file, bytesDecrypted);
+
+
             string extension = Path.GetExtension(file);
-            string result = file.Substring(0, file.Length - extension.Length);
-            File.Move(file, result);
+            string result = Setting.TempPath + Path.GetFileNameWithoutExtension(file);
+            File.Copy(file, result);
 
         }
 

@@ -30,6 +30,8 @@ namespace FileManager
         {
             string[] strDrivers = Environment.GetLogicalDrives();
 
+
+
             treeView1.BeginUpdate();
             TreeNode node0 = new TreeNode("我的电脑");
             treeView1.Nodes.Add(node0);
@@ -235,6 +237,11 @@ namespace FileManager
                         CryptPath = path;
                         GetListViewItem(CryptPath, imglist, lv);
                     }
+                    else
+                    {
+                        lv.Items.Clear();
+                        GetListViewItem(CryptPath, imglist, lv);
+                    }
                 }
                 else if (intflag == 5)
                 {
@@ -248,19 +255,31 @@ namespace FileManager
                         GetListViewItem(pp, imglist, lv);
                     }
                     else
-                    {                       
+                    {
                         if (path.IndexOf("\\") == -1)
                         {
                             uu = CryptPath + path;
-                            string extension = Path.GetExtension(uu);
-                            Crypt.DecryptFile(uu);
-                            System.Diagnostics.Process.Start(uu.Substring(0, uu.Length - extension.Length));
+                            if(File.Exists(Setting.TempPath + Path.GetFileNameWithoutExtension(uu)))
+                            {
+                                System.Diagnostics.Process.Start(Setting.TempPath + Path.GetFileNameWithoutExtension(uu));
+                            }
+                            else
+                            {
+                                Crypt.DecryptFile(uu);
+                                System.Diagnostics.Process.Start(Setting.TempPath + Path.GetFileNameWithoutExtension(uu));
+                            }
+
                         }
                         else
                         {
-                            string extension = Path.GetExtension(path);
-                            Crypt.DecryptFile(path);
-                            System.Diagnostics.Process.Start(path.Substring(0, path.Length - extension.Length));
+                            if(File.Exists(Setting.TempPath + Path.GetFileNameWithoutExtension(path)))
+                                System.Diagnostics.Process.Start(Setting.TempPath + Path.GetFileNameWithoutExtension(path));
+                            else
+                            {
+                                Crypt.DecryptFile(path);
+                                System.Diagnostics.Process.Start(Setting.TempPath + Path.GetFileNameWithoutExtension(path));
+                            }
+
                         }
                             
                     }
@@ -616,6 +635,7 @@ namespace FileManager
 
         private void CloseForm1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DeleteFile(Setting.TempPath);
             Close();
         }
 
@@ -635,6 +655,74 @@ namespace FileManager
         {
         }
 
+        /// <summary>
+        /// 复制文件夹中的所有文件夹与文件到另一个文件夹
+        /// </summary>
+        /// <param name="sourcePath">源文件夹</param>
+        /// <param name="destPath">目标文件夹</param>
+        public static void CopyFolder(string sourcePath, string destPath)
+        {
+            if (Directory.Exists(sourcePath))
+            {
+                if (!Directory.Exists(destPath))
+                {
+                    //目标目录不存在则创建
+                    try
+                    {
+                        Directory.CreateDirectory(destPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("创建目标目录失败：" + ex.Message);
+                    }
+                }
+                //获得源文件下所有文件
+                List<string> files = new List<string>(Directory.GetFiles(sourcePath));
+                files.ForEach(c =>
+                {
+                    string destFile = Path.Combine(new string[] { destPath, Path.GetFileName(c) });
+                    File.Copy(c, destFile, true);//覆盖模式
+                });
+                //获得源文件下所有目录文件
+                List<string> folders = new List<string>(Directory.GetDirectories(sourcePath));
+                folders.ForEach(c =>
+                {
+                    string destDir = Path.Combine(new string[] { destPath, Path.GetFileName(c) });
+                    //采用递归的方法实现
+                    CopyFolder(c, destDir);
+                });
+            }
+            else if(File.Exists(sourcePath))
+            {
+                File.Copy(sourcePath, destPath, true);
+            }
+            else
+                throw new DirectoryNotFoundException("源目录不存在！");
+        }
 
+        private void 加密ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count >= 1)
+            {
+                for (int i = 0; i < listView1.SelectedItems.Count; i++)
+                {
+                    string fullName = AllPath + listView1.SelectedItems[i].Text;
+                    string distName = CryptPath + listView1.SelectedItems[i].Text;
+                    CopyFolder(fullName, distName);
+                    Crypt.EncryptDirectory(distName);
+                    DeleteFile(distName);
+                }
+                GetPath(CryptPath, crypt_iL, crypt_lv, 4);
+            }
+            else
+            {
+                MessageBox.Show("请先选择一个文件或文件夹");
+            }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DeleteFile(Setting.TempPath);
+        }
     }
 }

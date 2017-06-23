@@ -25,8 +25,8 @@ namespace FileManager
         public static string MD5Encrypt(string strText)
         {
             MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] result = md5.ComputeHash(Encoding.Default.GetBytes(strText));
-            return Encoding.Default.GetString(result);
+            byte[] result = md5.ComputeHash(Encoding.UTF8.GetBytes(strText));
+            return Encoding.UTF8.GetString(result);
         }
         /// <summary> 隐藏文件夹 </summary>  
         /// <param name="path">文件名(包含路径)</param>  

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Data.SQLite;
+using System.Windows.Forms;
 
 namespace FileManager
 {
@@ -79,7 +80,7 @@ namespace FileManager
                 SQLiteCommand ksql = new SQLiteCommand(key_table_sql, conn);
                 ksql.ExecuteNonQuery();
 
-                string logs_table_sql = "create table logs_table(id int, filename VARCHAR(20), time DATETIME, op VARCHAR(20))";
+                string logs_table_sql = "create table logs_table (id int, filename VARCHAR(20), time DATETIME, op VARCHAR(20))";
                 SQLiteCommand lsql = new SQLiteCommand(logs_table_sql, conn);
                 lsql.ExecuteNonQuery();
 
@@ -103,6 +104,7 @@ namespace FileManager
                 result.Read();
                 if (result[2].ToString() == Setting.MD5Encrypt(input))
                 {
+                    passwd = System.Text.Encoding.UTF8.GetBytes(result[2].ToString());
                     return true;
                 }
             }
@@ -118,20 +120,30 @@ namespace FileManager
 
         public void InsertKeys(string path, string key)
         {
+            path = Path.GetFileName(path);
             string insertkey = "insert into keys_table (filename, key) values ('" + path + "', '" + key + "')";
-            SQLiteCommand insertKey = new SQLiteCommand(insertkey, login);
+            SQLiteCommand insertKey = new SQLiteCommand(insertkey, conn);
             insertKey.ExecuteNonQuery();
         }
 
         public string SelectKeys(string path)
         {
-            string selectkey = "select key from keys_table where filename = '" + path + "'";
-            SQLiteCommand selectKey = new SQLiteCommand(selectkey, login);
+            path = Path.GetFileNameWithoutExtension(path);
+            MessageBox.Show(path);
+            string selectkey = "select * from keys_table where filename = '" + path + "'";
+            MessageBox.Show(selectkey);
+            SQLiteCommand selectKey = new SQLiteCommand(selectkey, conn);
             SQLiteDataReader result = selectKey.ExecuteReader();
             if (result.StepCount == 1)
-                return result[0].ToString();
+            {
+                result.Read();
+                return result[1].ToString();
+            }
             else
+            { 
                 return null;
+            }
+                
         }
 
         public void CloseDatabase(int flag)
