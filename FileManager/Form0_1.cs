@@ -29,8 +29,8 @@ namespace FileManager
             FTPsetting.InsertSettings(2, "USER", user.Text);
             FTPsetting.InsertSettings(3, "PASS", passwd.Text);
             FTPsetting.CloseDatabase(0);
-            Directory.CreateDirectory(Environment.CurrentDirectory + "\\Backup");
-            Directory.CreateDirectory(Environment.CurrentDirectory + "\\Crypt");
+            Directory.CreateDirectory(Setting.BackupPath);
+            Directory.CreateDirectory(Setting.CryptPath);
             Setting.Flag = 1;
             Close();
         }

@@ -7,9 +7,12 @@ namespace FileManager
 {
     public static class  Setting
     {
-        private static string settingFile = Environment.CurrentDirectory + "//" + "56settings.db";
+        public static string settingFile = Environment.CurrentDirectory + "\\56settings.db";
+        public static string dbFile = Environment.CurrentDirectory + "\\56database.db";
+        public static string BackupPath = Environment.CurrentDirectory + "\\Backup\\";
+        public static string CryptPath = Environment.CurrentDirectory + "\\Crypt\\";
+        public static string TempPath = Environment.CurrentDirectory + "\\temp\\";
 
-        public static string SettingFile { get => settingFile; set => settingFile = value; }
         public static int Flag { get => flag; set => flag = value; }
 
         private static int flag = 0;

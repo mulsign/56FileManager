@@ -6,8 +6,8 @@ namespace FileManager
 {
     public class SQLiteHelper
     {
-        static string settingPath = Environment.CurrentDirectory + "//" + "56settings.db";
-        static string dbPath = Environment.CurrentDirectory + "//" + "56database.db";
+        static string settingPath = Setting.settingFile;
+        static string dbPath = Setting.dbFile;
         public static byte[] passwd;
         static public SQLiteConnection login;
         static public SQLiteConnection conn;

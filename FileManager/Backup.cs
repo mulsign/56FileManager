@@ -7,7 +7,7 @@ namespace FileManager
 {
     class Backuper
     {
-        private static string srcPath = Environment.CurrentDirectory + "\\Backup";
+        private static string srcPath = Setting.BackupPath;
         private static string destPath = ConfigurationManager.AppSettings["destPath"];
         private static int fileCount;
         private static int copyCount;

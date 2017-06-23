@@ -14,7 +14,7 @@ namespace FileManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (File.Exists(Setting.SettingFile))
+            if (File.Exists(Setting.settingFile))
             {
                 Application.Run(new Form1_0());
             }
@@ -26,8 +26,8 @@ namespace FileManager
             }
             if (Setting.Flag == 1)
             {
-                Directory.CreateDirectory(Environment.CurrentDirectory + "\\temp");
-                Setting.HidDir(Environment.CurrentDirectory + "\\temp");
+                Directory.CreateDirectory(Setting.TempPath);
+                Setting.HidDir(Setting.TempPath);
                 Application.Run(new Form1());
             }
                 

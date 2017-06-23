@@ -8,11 +8,9 @@ namespace FileManager
     class Crypt
     {
         private static string srcPath = Environment.CurrentDirectory + "\\Crypt";
-        private string userName = Environment.UserName;
-        private string computerName = Environment.MachineName;
-        private string desktopDir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        private static string computerName = Environment.MachineName;
 
-        private byte[] AES_Encrypt(byte[] bytesToBeEncryted, byte[] passwordBytes)
+        private static byte[] AES_Encrypt(byte[] bytesToBeEncryted, byte[] passwordBytes)
         {
             byte[] encryptedBytes = null;
             byte[] saltBytes = Encoding.UTF8.GetBytes(computerName);
@@ -40,7 +38,7 @@ namespace FileManager
             return encryptedBytes;
         }
 
-        public string CreatePassword(int length)
+        public static string CreatePassword(int length)
         {
             const string valid = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM7894561230*=!";
             StringBuilder res = new StringBuilder();
@@ -54,7 +52,7 @@ namespace FileManager
         }
 
 
-        public void EncryptFile(string file)
+        public static void EncryptFile(string file)
         {
             string password = CreatePassword(20);
             byte[] bytesToBeEncrypted = File.ReadAllBytes(file);
@@ -74,7 +72,7 @@ namespace FileManager
             File.Move(file, file + ".encrypted");
         }
 
-        public void EncryptDirectory(string location)
+        public static void EncryptDirectory(string location)
         {
 
             string[] files = Directory.GetFiles(location);
@@ -89,7 +87,7 @@ namespace FileManager
             }
         }
 
-        private byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
+        private static byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
         {
             byte[] decryptedBytes = null;
             byte[] saltBytes = Encoding.UTF8.GetBytes(computerName);
@@ -120,7 +118,7 @@ namespace FileManager
             return decryptedBytes;
         }
 
-        public void DecryptFile(string file)
+        public static void DecryptFile(string file)
         {
             SQLiteHelper selectKey = new SQLiteHelper();
             string password = selectKey.SelectKeys(file);
@@ -138,7 +136,7 @@ namespace FileManager
 
         }
 
-        public void DecryptDirectory(string location)
+        public static void DecryptDirectory(string location)
         {
 
             string[] files = Directory.GetFiles(location);
