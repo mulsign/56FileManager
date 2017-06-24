@@ -69,7 +69,9 @@ namespace FileManager
             byte[] bytesEncrypted = AES_Encrypt(bytesToBeEncrypted, passwordBytes);
 
             File.WriteAllBytes(file, bytesEncrypted);
-            File.Move(file, file + ".encrypted");
+            File.Move(file, file + ".56encrypted");
+
+            Log.InsertLog(file, DateTime.Now, "encrypt");
         }
 
         /*public static void EncryptDirectory(string location)
@@ -139,6 +141,8 @@ namespace FileManager
             byte[] bytesDecrypted = AES_Decrypt(bytesToBeDecrypted, passwordBytes);
 
             File.WriteAllBytes(Setting.TempPath + Path.GetFileNameWithoutExtension(file), bytesDecrypted);
+
+
 
         }
 

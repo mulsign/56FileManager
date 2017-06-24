@@ -24,6 +24,7 @@ namespace FileManager
                 initial.DatabaseInitial(0, Setting.MD5Encrypt(passWD.Text));
                 initial.DatabaseInitial(1);
 
+
                 Close();
             }
             else

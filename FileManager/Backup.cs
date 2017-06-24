@@ -9,14 +9,12 @@ namespace FileManager
     {
         private static string srcPath = Setting.BackupPath;
         private static string destPath = Setting._BackupPath;
-        private static int fileCount;
         private static int copyCount;
         private static SQLiteConnection conn = conn = new SQLiteConnection("Data Source=" + Setting.dbFile + ";Version=3;");
         private static string TB_NAME = "backupfile_table";
 
         public static int BackupFile()
         {
-            fileCount = 0;
             copyCount = 0;
             conn.SetPassword(SQLiteHelper.passwd);
             conn.Open();
@@ -55,6 +53,7 @@ namespace FileManager
                         newFolder.Create();
                     }
                     NextFile.CopyTo(newpath + "\\" + NextFile.Name, true);
+                    Log.InsertLog(fullname, DateTime.Now, "backup");
                     SQLiteCommand cmdInsert = new SQLiteCommand(conn)
                     {
                         CommandText = "insert into " + TB_NAME + " values (@fullPath, @lastWriteTime)"//设置带参SQL语句  
@@ -79,6 +78,7 @@ namespace FileManager
                             newFolder.Create();
                         }
                         NextFile.CopyTo(newpath + "\\" + NextFile.Name, true);
+                        Log.InsertLog(fullname, DateTime.Now, "backup");
                         SQLiteCommand cmdUpdate = new SQLiteCommand(conn);//实例化SQL命令  
                         cmdUpdate.CommandText = "update " + TB_NAME + " set lastWriteTime=@lastWriteTime where fullPath=@fullPath";
                         cmdUpdate.Parameters.AddRange(new[] {//添加参数  

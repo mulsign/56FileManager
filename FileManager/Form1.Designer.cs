@@ -47,7 +47,7 @@
             this.图标ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.详细信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.备份ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.加密ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -138,7 +138,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.文件ToolStripMenuItem,
             this.查看ToolStripMenuItem,
-            this.备份ToolStripMenuItem,
+            this.logToolStripMenuItem,
             this.加密ToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
@@ -248,10 +248,11 @@
             resources.ApplyResources(this.详细信息ToolStripMenuItem, "详细信息ToolStripMenuItem");
             this.详细信息ToolStripMenuItem.Click += new System.EventHandler(this.详细信息ToolStripMenuItem_Click);
             // 
-            // 备份ToolStripMenuItem
+            // logToolStripMenuItem
             // 
-            this.备份ToolStripMenuItem.Name = "备份ToolStripMenuItem";
-            resources.ApplyResources(this.备份ToolStripMenuItem, "备份ToolStripMenuItem");
+            this.logToolStripMenuItem.Name = "logToolStripMenuItem";
+            resources.ApplyResources(this.logToolStripMenuItem, "logToolStripMenuItem");
+            this.logToolStripMenuItem.Click += new System.EventHandler(this.LogToolStripMenuItem_Click);
             // 
             // 加密ToolStripMenuItem
             // 
@@ -752,7 +753,7 @@
         private System.Windows.Forms.ToolStripMenuItem 新建文件夹ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem 查看ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 备份ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 加密ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 剪切ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 复制ToolStripMenuItem;

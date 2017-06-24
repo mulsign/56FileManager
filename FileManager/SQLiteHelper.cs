@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Data.SQLite;
+using System;
 
 namespace FileManager
 {
@@ -78,7 +79,7 @@ namespace FileManager
                 SQLiteCommand ksql = new SQLiteCommand(key_table_sql, conn);
                 ksql.ExecuteNonQuery();
 
-                string logs_table_sql = "create table logs_table (id int, filename VARCHAR(20), time DATETIME, op VARCHAR(20))";
+                string logs_table_sql = "create table logs_table (filename VARCHAR(200), time VARCHAR(30), op VARCHAR(20))";
                 SQLiteCommand lsql = new SQLiteCommand(logs_table_sql, conn);
                 lsql.ExecuteNonQuery();
 
@@ -124,6 +125,13 @@ namespace FileManager
             insertKey.ExecuteNonQuery();
         }
 
+        public void InsertLogs(string path, string time, string op)
+        {
+            string insertlog = "insert into logs_table (filename, time, op) values ('" + path + "','"+ time +"','" + op + "')";
+            SQLiteCommand insertLog = new SQLiteCommand(insertlog, conn);
+            insertLog.ExecuteNonQuery();
+        }
+
         public string SelectKeys(string path)
         {
             path = Path.GetFileNameWithoutExtension(path);
@@ -141,6 +149,7 @@ namespace FileManager
             }
                 
         }
+
 
         public void CloseDatabase(int flag)
         {

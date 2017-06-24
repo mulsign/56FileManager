@@ -40,6 +40,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -113,7 +114,6 @@
             // 
             // button2
             // 
-            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(222, 200);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 28);
@@ -142,11 +142,21 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "ftp://";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(117, 246);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(137, 12);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "注：默认会在本地备份！";
+            // 
             // Form0_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 281);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button2);
@@ -182,5 +192,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

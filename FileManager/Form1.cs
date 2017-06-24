@@ -747,5 +747,11 @@ namespace FileManager
             Backup.BackupFile();
             DeleteFile(Setting.TempPath);
         }
+
+        private void LogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form log = new LogViewer();
+            log.Show();
+        }
     }
 }
