@@ -138,12 +138,8 @@ namespace FileManager
             passwordBytes = SHA256.Create().ComputeHash(passwordBytes);
 
             byte[] bytesDecrypted = AES_Decrypt(bytesToBeDecrypted, passwordBytes);
-            File.WriteAllBytes(file, bytesDecrypted);
 
-
-            string extension = Path.GetExtension(file);
-            string result = Setting.TempPath + Path.GetFileNameWithoutExtension(file);
-            File.Copy(file, result);
+            File.WriteAllBytes(Setting.TempPath + Path.GetFileNameWithoutExtension(file), bytesDecrypted);
 
         }
 
