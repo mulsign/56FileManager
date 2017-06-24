@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace FileManager
@@ -16,7 +14,24 @@ namespace FileManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            if (File.Exists(Setting.settingFile))
+            {
+                Application.Run(new Form1_0());
+            }
+            else
+            {
+                Application.Run(new Form0_0());
+                Application.Run(new Form0_1());
+                
+            }
+            if (Setting.Flag == 1)
+            {
+                Directory.CreateDirectory(Setting.TempPath);
+                Setting.HidDir(Setting.TempPath);
+                Application.Run(new Form1());
+            }
+                
+
         }
     }
 }

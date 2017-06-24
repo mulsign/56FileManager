@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FileManager.Properties
+namespace SQLiteHelper.Properties
 {
 
 

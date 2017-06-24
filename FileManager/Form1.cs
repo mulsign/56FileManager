@@ -17,6 +17,8 @@ namespace FileManager
     {
         //全局静态数据成员，指的是当前所处目录路径
         public static string AllPath = "";
+        public static string BackupPath = "";
+        public static string CryptPath = "";
 
         public Form1()
         {
@@ -28,6 +30,8 @@ namespace FileManager
         {
             string[] strDrivers = Environment.GetLogicalDrives();
 
+
+
             treeView1.BeginUpdate();
             TreeNode node0 = new TreeNode("我的电脑");
             treeView1.Nodes.Add(node0);
@@ -36,11 +40,13 @@ namespace FileManager
                 TreeNode tnMyDrives = new TreeNode(strDrive);
                 node0.Nodes.Add(tnMyDrives);
             }
-            TreeNode node1 = new TreeNode("备份文件");
-            TreeNode node2 = new TreeNode("加密文件");
-            treeView1.Nodes.Add(node1);
-            treeView1.Nodes.Add(node2);
             treeView1.EndUpdate();
+            node0.Expand();
+
+            GetPath(Setting.CryptPath, crypt_iL, crypt_lv, 4);
+            GetPath(Setting.BackupPath, backup_iL, backup_lv, 2);
+
+            ShowAddress();
 
         }
         
@@ -154,8 +160,9 @@ namespace FileManager
                 MessageBox.Show(ex.Message);
             }
         }
-
-        //将指定路径下文件或文件夹显示在列表视图控件listview中
+        ///   <summary>
+        ///   将指定路径下文件或文件夹显示在列表视图控件listview中01AllPath23Backup45Crypt
+        ///   </summary>
         public void GetPath(string path, ImageList imglist, ListView lv, int intflag)
         {
             string pp = "";
@@ -171,7 +178,7 @@ namespace FileManager
                         GetListViewItem(AllPath, imglist, lv);
                     }
                 }
-                else
+                else if (intflag == 1)
                 {
                     uu = AllPath + path;
                     if (Directory.Exists(uu))
@@ -192,6 +199,96 @@ namespace FileManager
                             System.Diagnostics.Process.Start(path);
                     }
                 }
+                else if(intflag == 2)
+                {
+                    if (BackupPath != path)
+                    {
+                        lv.Items.Clear();
+                        BackupPath = path;
+                        GetListViewItem(BackupPath, imglist, lv);
+                    }
+                    else
+                    {
+                        lv.Items.Clear();
+                        GetListViewItem(BackupPath, imglist, lv);
+                    }
+                }
+                else if (intflag == 3)
+                {
+                    uu = BackupPath + path;
+                    if (Directory.Exists(uu))
+                    {
+                        BackupPath = BackupPath + path + "\\";
+                        pp = BackupPath.Substring(0, BackupPath.Length - 1);
+                        lv.Items.Clear();
+                        GetListViewItem(pp, imglist, lv);
+                    }
+                    else
+                    {
+                        if (path.IndexOf("\\") == -1)
+                        {
+                            uu = BackupPath + path;
+                            System.Diagnostics.Process.Start(uu);
+                        }
+                        else
+                            System.Diagnostics.Process.Start(path);
+                    }
+                }
+                else if (intflag == 4)
+                {
+                    if (CryptPath != path)
+                    {
+                        lv.Items.Clear();
+                        CryptPath = path;
+                        GetListViewItem(CryptPath, imglist, lv);
+                    }
+                    else
+                    {
+                        lv.Items.Clear();
+                        GetListViewItem(CryptPath, imglist, lv);
+                    }
+                }
+                else if (intflag == 5)
+                {
+                    uu = CryptPath + path;
+                    if (Directory.Exists(uu))
+                    {
+                        CryptPath = CryptPath + path + "\\";
+                        pp = CryptPath.Substring(0, CryptPath.Length - 1);
+                        MessageBox.Show(CryptPath + pp);
+                        lv.Items.Clear();
+                        GetListViewItem(pp, imglist, lv);
+                    }
+                    else
+                    {
+                        if (path.IndexOf("\\") == -1)
+                        {
+                            uu = CryptPath + path;
+                            if(File.Exists(Setting.TempPath + Path.GetFileNameWithoutExtension(uu)))
+                            {
+                                System.Diagnostics.Process.Start(Setting.TempPath + Path.GetFileNameWithoutExtension(uu));
+                            }
+                            else
+                            {
+                                Crypt.DecryptFile(uu);
+                                System.Diagnostics.Process.Start(Setting.TempPath + Path.GetFileNameWithoutExtension(uu));
+                            }
+
+                        }
+                        else
+                        {
+                            if(File.Exists(Setting.TempPath + Path.GetFileNameWithoutExtension(path)))
+                                System.Diagnostics.Process.Start(Setting.TempPath + Path.GetFileNameWithoutExtension(path));
+                            else
+                            {
+                                Crypt.DecryptFile(path);
+                                System.Diagnostics.Process.Start(Setting.TempPath + Path.GetFileNameWithoutExtension(path));
+                            }
+
+                        }
+                            
+                    }
+                }
             }
             catch(Exception ex)
             {
@@ -200,23 +297,52 @@ namespace FileManager
         }
         
         //向上一层文件夹目录路径
-        private void BackPath(ListView lv, ImageList imagelist)
+        private void BackPath(ListView lv, ImageList imagelist,int flag)
         {
-            if (AllPath.Length != 3 && AllPath.Length != 0)
+            if(flag == 0)
             {
-                string NewPath = AllPath.Remove(AllPath.LastIndexOf("\\")).Remove(AllPath.Remove(AllPath.LastIndexOf("\\")).LastIndexOf("\\")) + "\\";
-                lv.Items.Clear();
-                GetListViewItem(NewPath, imagelist, lv);
+                if (AllPath.Length != 3 && AllPath.Length != 0)
+                {
+                    string NewPath = AllPath.Remove(AllPath.LastIndexOf("\\")).Remove(AllPath.Remove(AllPath.LastIndexOf("\\")).LastIndexOf("\\")) + "\\";
+                    lv.Items.Clear();
+                    GetListViewItem(NewPath, imagelist, lv);
 
-                AllPath = NewPath;
-                
+                    AllPath = NewPath;
+
+                }
             }
+            else if(flag == 1)
+            {
+                if (BackupPath != Setting.BackupPath)
+                {
+                    string NewPath = BackupPath.Remove(BackupPath.LastIndexOf("\\")).Remove(BackupPath.Remove(BackupPath.LastIndexOf("\\")).LastIndexOf("\\")) + "\\";
+                    lv.Items.Clear();
+                    GetListViewItem(NewPath, imagelist, lv);
+
+                    BackupPath = NewPath;
+                }
+            }
+
+            else if(flag == 2)
+            {
+                if (CryptPath != Setting.CryptPath)
+                {
+                    string NewPath = CryptPath.Remove(CryptPath.LastIndexOf("\\")).Remove(CryptPath.Remove(CryptPath.LastIndexOf("\\")).LastIndexOf("\\")) + "\\";
+                    lv.Items.Clear();
+                    GetListViewItem(NewPath, imagelist, lv);
+
+                    CryptPath = NewPath;
+                }
+            }
+            
         }
 
         //将当前路径显示在地址栏
         private void ShowAddress()
         {
             toolStripTextBox2.Text = AllPath;
+            Backup_toolStripTextBox.Text = BackupPath;
+            Crypt_toolStripTextBox.Text = CryptPath;
         }
 
 
@@ -235,10 +361,35 @@ namespace FileManager
             ShowAddress();
         }
 
+        private void Cryptlv_DoubleClick(object sender, EventArgs e)
+        {
+
+            GetPath(crypt_lv.SelectedItems[0].Text, crypt_iL, crypt_lv, 5);
+            ShowAddress();
+        }
+
+        private void Backuplv_DoubleClick(object sender, EventArgs e)
+        {
+            GetPath(backup_lv.SelectedItems[0].Text, backup_iL, backup_lv, 3);
+            ShowAddress();
+        }
+
         //单击向上按钮事件
         private void ToolStripButton2_Click(object sender, EventArgs e)
         {
-            BackPath(listView1, imageList1);
+            BackPath(listView1, imageList1,0);
+            ShowAddress();
+        }
+
+        private void ToolStripButton1_Click(object sender, EventArgs e)
+        {
+            BackPath(crypt_lv, crypt_iL, 2);
+            ShowAddress();
+        }
+
+        private void ToolStripButton6_Click(object sender, EventArgs e)
+        {
+            BackPath(backup_lv, backup_iL, 1);
             ShowAddress();
         }
 
@@ -297,21 +448,29 @@ namespace FileManager
         private void 平铺ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listView1.View = View.Tile;
+            crypt_lv.View = View.Tile;
+            backup_lv.View = View.Tile;
         }
 
         private void 图标ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listView1.View = View.LargeIcon;
+            crypt_lv.View = View.LargeIcon;
+            backup_lv.View = View.LargeIcon;
         }
 
         private void 列表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listView1.View = View.List;
+            crypt_lv.View = View.List;
+            backup_lv.View = View.List; 
         }
 
         private void 详细信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listView1.View = View.Details;
+            crypt_lv.View = View.Details;
+            backup_lv.View = View.Details;
         }
 
         private void 新建文件ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -365,7 +524,7 @@ namespace FileManager
             }
             else
             {
-                MessageBox.Show("请先选择一个文件或文件夹");
+                MessageBox.Show("请选择文件", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -403,6 +562,28 @@ namespace FileManager
                 else if(listView1.SelectedItems.Count == 0)
                 {
                     contextMenuStrip2.Show(listView1, p);
+                }
+            }
+
+        }
+
+        private void Cryptlv_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            crypt_lv.MultiSelect = false;
+            //鼠标右键
+
+            if (e.Button == MouseButtons.Right)
+            {
+                Point p = new Point(e.X, e.Y);
+                if (crypt_lv.SelectedItems.Count == 1)
+                {
+                    string fileName = crypt_lv.SelectedItems[0].Text;
+                    contextMenuStrip1.Show(crypt_lv, p);
+                }
+                else if (crypt_lv.SelectedItems.Count == 0)
+                {
+                    contextMenuStrip2.Show(crypt_lv, p);
                 }
             }
 
@@ -459,9 +640,118 @@ namespace FileManager
 
         private void CloseForm1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DeleteFile(Setting.TempPath);
             Close();
         }
 
-        
+        private void Crypt_lv_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void Crypt_lv_DragDrop(object sender, DragEventArgs e)
+        {
+        }
+
+        /// <summary>
+        /// 复制文件夹中的所有文件夹与文件到另一个文件夹
+        /// </summary>
+        /// <param name="sourcePath">源文件夹</param>
+        /// <param name="destPath">目标文件夹</param>
+        public static void CopyFolder(string sourcePath, string destPath)
+        {
+            if (Directory.Exists(sourcePath))
+            {
+                if (!Directory.Exists(destPath))
+                {
+                    //目标目录不存在则创建
+                    try
+                    {
+                        Directory.CreateDirectory(destPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("创建目标目录失败：" + ex.Message);
+                    }
+                }
+                //获得源文件下所有文件
+                List<string> files = new List<string>(Directory.GetFiles(sourcePath));
+                files.ForEach(c =>
+                {
+                    string destFile = Path.Combine(new string[] { destPath, Path.GetFileName(c) });
+                    File.Copy(c, destFile, true);//覆盖模式
+                });
+                //获得源文件下所有目录文件
+                List<string> folders = new List<string>(Directory.GetDirectories(sourcePath));
+                folders.ForEach(c =>
+                {
+                    string destDir = Path.Combine(new string[] { destPath, Path.GetFileName(c) });
+                    //采用递归的方法实现
+                    CopyFolder(c, destDir);
+                });
+            }
+            else if(File.Exists(sourcePath))
+            {
+                File.Copy(sourcePath, destPath, true);
+            }
+            else
+                throw new DirectoryNotFoundException("源目录不存在！");
+        }
+
+        private void 加密ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 1)
+            {
+                string fullName = AllPath + listView1.SelectedItems[0].Text;
+                string distName = CryptPath + listView1.SelectedItems[0].Text;
+                CopyFolder(fullName, distName);
+                Crypt.EncryptFile(distName);
+                MessageBox.Show("加密成功");
+                GetPath(CryptPath, crypt_iL, crypt_lv, 4);
+            }
+            else
+            {
+                MessageBox.Show("请先选择一个文件或文件夹");
+            }
+        }
+
+
+
+        private void 备份ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 1)
+            {
+                string fullName = AllPath + listView1.SelectedItems[0].Text;
+                string distName = BackupPath + listView1.SelectedItems[0].Text;
+                CopyFolder(fullName, distName);
+                int count = Backup.BackupFile();
+                MessageBox.Show("成功备份" + count + "个文件");
+                GetPath(BackupPath, backup_iL, backup_lv, 2);
+            }
+            else
+            {
+                MessageBox.Show("请先选择一个文件或文件夹");
+            }
+
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Backup.BackupFile();
+            DeleteFile(Setting.TempPath);
+        }
+
+        private void LogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form log = new LogViewer();
+            log.Show();
+        }
     }
 }

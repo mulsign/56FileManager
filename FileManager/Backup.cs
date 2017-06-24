@@ -1,0 +1,96 @@
+﻿using System;
+using System.Configuration;
+using System.Data.SQLite;
+using System.IO;
+
+namespace FileManager
+{
+    class Backup
+    {
+        private static string srcPath = Setting.BackupPath;
+        private static string destPath = Setting._BackupPath;
+        private static int copyCount;
+        private static SQLiteConnection conn = conn = new SQLiteConnection("Data Source=" + Setting.dbFile + ";Version=3;");
+        private static string TB_NAME = "backupfile_table";
+
+        public static int BackupFile()
+        {
+            copyCount = 0;
+            conn.SetPassword(SQLiteHelper.passwd);
+            conn.Open();
+            DirectoryInfo theFolder = new DirectoryInfo(srcPath);
+            ReadFolderList(theFolder);
+            ReadFileList(theFolder);
+            conn.Close();
+            return copyCount;
+        }
+
+        static void ReadFolderList(DirectoryInfo folder)
+        {
+            DirectoryInfo[] dirInfo = folder.GetDirectories();
+            //遍历文件夹
+            foreach (DirectoryInfo NextFolder in dirInfo)
+            {
+                ReadFolderList(NextFolder);
+                ReadFileList(NextFolder);
+            }
+        }
+
+        static void ReadFileList(DirectoryInfo folder)
+        {
+            FileInfo[] fileInfo = folder.GetFiles();
+            foreach (FileInfo NextFile in fileInfo)  //遍历文件
+            {
+                SQLiteCommand cmd = new SQLiteCommand("select lastWriteTime from " + TB_NAME + " where fullPath='" + NextFile.FullName + "'", conn);
+                object obj = cmd.ExecuteScalar();
+                if (obj == null)//如果是新增的文件
+                {
+                    string fullname = folder.FullName;
+                    string newpath = fullname.Replace(srcPath, destPath + "\\" + DateTime.Now.ToString("yyyyMMdd"));
+                    DirectoryInfo newFolder = new DirectoryInfo(newpath);
+                    if (!newFolder.Exists)
+                    {
+                        newFolder.Create();
+                    }
+                    NextFile.CopyTo(newpath + "\\" + NextFile.Name, true);
+                    Log.InsertLog(fullname, DateTime.Now, "backup");
+                    SQLiteCommand cmdInsert = new SQLiteCommand(conn)
+                    {
+                        CommandText = "insert into " + TB_NAME + " values (@fullPath, @lastWriteTime)"//设置带参SQL语句  
+                    };//实例化SQL命令  
+                    cmdInsert.Parameters.AddRange(new[] {//添加参数  
+                           new SQLiteParameter("@fullPath", NextFile.FullName),
+                           new SQLiteParameter("@lastWriteTime", NextFile.LastWriteTime)
+                       });
+                    cmdInsert.ExecuteNonQuery();
+                    copyCount++;
+                }
+                else
+                {
+                    DateTime lastWriteTime = DateTime.Parse(obj.ToString());
+                    if (!DateTime.Parse(NextFile.LastWriteTime.ToString()).Equals(lastWriteTime))
+                    {
+                        String fullname = folder.FullName;
+                        string newpath = fullname.Replace(srcPath, destPath + "\\" + DateTime.Now.ToString("yyyyMMdd"));
+                        DirectoryInfo newFolder = new DirectoryInfo(newpath);
+                        if (!newFolder.Exists)
+                        {
+                            newFolder.Create();
+                        }
+                        NextFile.CopyTo(newpath + "\\" + NextFile.Name, true);
+                        Log.InsertLog(fullname, DateTime.Now, "backup");
+                        SQLiteCommand cmdUpdate = new SQLiteCommand(conn);//实例化SQL命令  
+                        cmdUpdate.CommandText = "update " + TB_NAME + " set lastWriteTime=@lastWriteTime where fullPath=@fullPath";
+                        cmdUpdate.Parameters.AddRange(new[] {//添加参数  
+                           new SQLiteParameter("@fullPath", NextFile.FullName),
+                           new SQLiteParameter("@lastWriteTime", NextFile.LastWriteTime)
+                       });
+                        cmdUpdate.ExecuteNonQuery();
+
+                        copyCount++;
+                    }
+                }
+            }
+        }
+    }
+}
