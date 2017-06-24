@@ -10,6 +10,7 @@ namespace FileManager
         public static string settingFile = Environment.CurrentDirectory + "\\56settings.db";
         public static string dbFile = Environment.CurrentDirectory + "\\56database.db";
         public static string BackupPath = Environment.CurrentDirectory + "\\Backup\\";
+        public static string _BackupPath = Environment.CurrentDirectory + "\\.Backup\\";
         public static string CryptPath = Environment.CurrentDirectory + "\\Crypt\\";
         public static string TempPath = Environment.CurrentDirectory + "\\temp\\";
 

@@ -31,6 +31,8 @@ namespace FileManager
             FTPsetting.CloseDatabase(0);
             Directory.CreateDirectory(Setting.BackupPath);
             Directory.CreateDirectory(Setting.CryptPath);
+            Directory.CreateDirectory(Setting._BackupPath);
+            Setting.HidDir(Setting._BackupPath);
             Setting.Flag = 1;
             Close();
         }

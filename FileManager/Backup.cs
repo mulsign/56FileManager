@@ -5,23 +5,25 @@ using System.IO;
 
 namespace FileManager
 {
-    class Backuper
+    class Backup
     {
         private static string srcPath = Setting.BackupPath;
-        private static string destPath = ConfigurationManager.AppSettings["destPath"];
+        private static string destPath = Setting._BackupPath;
         private static int fileCount;
         private static int copyCount;
-        private static SQLiteConnection conn;
-        private static string TB_NAME = "";
+        private static SQLiteConnection conn = conn = new SQLiteConnection("Data Source=" + Setting.dbFile + ";Version=3;");
+        private static string TB_NAME = "backupfile_table";
 
         public static int BackupFile()
         {
             fileCount = 0;
             copyCount = 0;
+            conn.SetPassword(SQLiteHelper.passwd);
+            conn.Open();
             DirectoryInfo theFolder = new DirectoryInfo(srcPath);
             ReadFolderList(theFolder);
             ReadFileList(theFolder);
-            Console.WriteLine("共备份了" + copyCount + "个文件");
+            conn.Close();
             return copyCount;
         }
 
@@ -45,7 +47,7 @@ namespace FileManager
                 object obj = cmd.ExecuteScalar();
                 if (obj == null)//如果是新增的文件
                 {
-                    String fullname = folder.FullName;
+                    string fullname = folder.FullName;
                     string newpath = fullname.Replace(srcPath, destPath + "\\" + DateTime.Now.ToString("yyyyMMdd"));
                     DirectoryInfo newFolder = new DirectoryInfo(newpath);
                     if (!newFolder.Exists)
@@ -53,8 +55,10 @@ namespace FileManager
                         newFolder.Create();
                     }
                     NextFile.CopyTo(newpath + "\\" + NextFile.Name, true);
-                    SQLiteCommand cmdInsert = new SQLiteCommand(conn);//实例化SQL命令  
-                    cmdInsert.CommandText = "insert into " + TB_NAME + " values(@fullPath, @lastWriteTime)";//设置带参SQL语句  
+                    SQLiteCommand cmdInsert = new SQLiteCommand(conn)
+                    {
+                        CommandText = "insert into " + TB_NAME + " values (@fullPath, @lastWriteTime)"//设置带参SQL语句  
+                    };//实例化SQL命令  
                     cmdInsert.Parameters.AddRange(new[] {//添加参数  
                            new SQLiteParameter("@fullPath", NextFile.FullName),
                            new SQLiteParameter("@lastWriteTime", NextFile.LastWriteTime)
@@ -86,8 +90,6 @@ namespace FileManager
                         copyCount++;
                     }
                 }
-
-                Console.WriteLine("已遍历第" + (++fileCount) + "个文件");
             }
         }
     }

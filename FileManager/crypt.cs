@@ -60,7 +60,6 @@ namespace FileManager
             SQLiteHelper insertkey = new SQLiteHelper();
 
             insertkey.ConnectToDatabase(1);
-            MessageBox.Show(file);
             insertkey.InsertKeys(file, password);
 
             byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
@@ -73,7 +72,7 @@ namespace FileManager
             File.Move(file, file + ".encrypted");
         }
 
-        public static void EncryptDirectory(string location)
+        /*public static void EncryptDirectory(string location)
         {
             if (Directory.Exists(location))
             {
@@ -93,7 +92,7 @@ namespace FileManager
                 EncryptFile(location);
             }
             
-        }
+        }*/
 
         private static byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
         {
@@ -143,6 +142,7 @@ namespace FileManager
 
         }
 
+        /*
         public static void DecryptDirectory(string location)
         {
 
@@ -161,6 +161,6 @@ namespace FileManager
                 DecryptDirectory(childDirectories[i]);
             }
 
-        }
+        }*/
     }
 }

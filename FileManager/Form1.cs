@@ -207,6 +207,11 @@ namespace FileManager
                         BackupPath = path;
                         GetListViewItem(BackupPath, imglist, lv);
                     }
+                    else
+                    {
+                        lv.Items.Clear();
+                        GetListViewItem(BackupPath, imglist, lv);
+                    }
                 }
                 else if (intflag == 3)
                 {
@@ -702,16 +707,13 @@ namespace FileManager
 
         private void 加密ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count >= 1)
+            if (listView1.SelectedItems.Count == 1)
             {
-                for (int i = 0; i < listView1.SelectedItems.Count; i++)
-                {
-                    string fullName = AllPath + listView1.SelectedItems[i].Text;
-                    string distName = CryptPath + listView1.SelectedItems[i].Text;
-                    CopyFolder(fullName, distName);
-                    Crypt.EncryptDirectory(distName);
-                    DeleteFile(distName);
-                }
+                string fullName = AllPath + listView1.SelectedItems[0].Text;
+                string distName = CryptPath + listView1.SelectedItems[0].Text;
+                CopyFolder(fullName, distName);
+                Crypt.EncryptFile(distName);
+                MessageBox.Show("加密成功");
                 GetPath(CryptPath, crypt_iL, crypt_lv, 4);
             }
             else
@@ -720,8 +722,29 @@ namespace FileManager
             }
         }
 
+
+
+        private void 备份ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 1)
+            {
+                string fullName = AllPath + listView1.SelectedItems[0].Text;
+                string distName = BackupPath + listView1.SelectedItems[0].Text;
+                CopyFolder(fullName, distName);
+                int count = Backup.BackupFile();
+                MessageBox.Show("成功备份" + count + "个文件");
+                GetPath(BackupPath, backup_iL, backup_lv, 2);
+            }
+            else
+            {
+                MessageBox.Show("请先选择一个文件或文件夹");
+            }
+
+        }
+
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Backup.BackupFile();
             DeleteFile(Setting.TempPath);
         }
     }

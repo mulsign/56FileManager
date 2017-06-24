@@ -1,7 +1,5 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Data.SQLite;
-using System.Windows.Forms;
 
 namespace FileManager
 {
@@ -84,7 +82,7 @@ namespace FileManager
                 SQLiteCommand lsql = new SQLiteCommand(logs_table_sql, conn);
                 lsql.ExecuteNonQuery();
 
-                string backupfile_table_sql = "create table backupfile_table (filename VARCHAR(20), lastWriteTime DATETIME)";
+                string backupfile_table_sql = "create table backupfile_table (fullPath VARCHAR(200), lastWriteTime DATETIME)";
                 SQLiteCommand bsql = new SQLiteCommand(backupfile_table_sql, conn);
                 bsql.ExecuteNonQuery();
 
@@ -129,9 +127,7 @@ namespace FileManager
         public string SelectKeys(string path)
         {
             path = Path.GetFileNameWithoutExtension(path);
-            MessageBox.Show(path);
             string selectkey = "select * from keys_table where filename = '" + path + "'";
-            MessageBox.Show(selectkey);
             SQLiteCommand selectKey = new SQLiteCommand(selectkey, conn);
             SQLiteDataReader result = selectKey.ExecuteReader();
             if (result.StepCount == 1)
